@@ -1,0 +1,82 @@
+VERIFICATION INDEPENDANTE PHASE 4 - HAROUN AZZABI - GROUPE 1
+GEI1084 | 25 novembre 2026
+
+PR examinee : https://github.com/mourad97ch/GEI1084-Lab4-Groupe1/pull/1
+Branche testee : dev/phase4
+Commit teste : c802dc0c3f57daa4d767c8ce151c7f75c754ec58
+Branche de preuves : review/haroun-phase4, creee depuis ce commit.
+Compte GitHub verifie : harounazzabi.
+Outil : Vivado / XSim 2022.2.2 ; VHDL-2008.
+
+PERIMETRE ET INTERFACES
+Nouvelle execution du dossier phase4/, distincte de la validation du Lab4
+initial. Aucune preuve anterieure du Lab4 ou de Mourad n'est reutilisee.
+- instruction_rom ouvre PROGRAM_FILE, transmis avec la valeur Program.hex.
+- mp1_system assemble instruction_rom et arm_mp1 avec des component.
+- PC du coeur alimente la ROM ; son instruction alimente Instruction du coeur.
+- RegState est transmis de register_file au datapath, au coeur et au systeme.
+- RegState(32*i+31 downto 32*i) expose registers(i), pour i=0..14 :
+  R0 = RegState(31 downto 0) ; R14 = RegState(479 downto 448).
+Les 20 mots hexadecimaux de Program.hex correspondent aux 20 mots binaires
+de Instructions.txt. ExpectedData.txt contient les 20 paires fournies.
+Les 18 sources VHDL de phase4/src et les 4 fichiers de phase4/sim ont ete
+utilises sans modification. Les sources du Lab4 a la racine sont exclues.
+Les empreintes SHA-256 avant/apres des 22 fichiers sont identiques.
+
+ETAPES VIVADO POUR REPRODUIRE
+1. Creer un projet local et ajouter uniquement phase4/src/*.vhd en Design Sources.
+2. Ajouter phase4/sim/tb_mp1.vhd et les trois fichiers de donnees en Simulation Sources.
+3. Configurer tous les VHDL en VHDL 2008 ; Design Top mp1_system ; Simulation Top tb_mp1.
+4. Verifier la copie/export des trois donnees dans le repertoire d'execution XSim.
+   Les sources et generics conservent leurs chemins relatifs. Les copies de
+   cette execution sont identiques, octet par octet, aux fichiers du depot.
+5. Run Simulation > Run Behavioral Simulation ; executer jusqu'a 230 ns.
+Le projet local de cette execution est situe hors du depot :
+../verification_haroun_phase4/vivado/MP1_Developpement.xpr.
+
+OBSERVATIONS REELLES
+A 215 ns, le testbench affiche Tests: 20; errors: 0.
+A 230 ns, les lectures XSim donnent Test_number=20, Error_count=0, Done=TRUE.
+La periode de CLK est 10 ns ; Reset est actif de 0 a 22 ns.
+Les fronts de comparaison sont 25,35,...,215 ns. Avant leurs mises a jour
+sequentielles, PC vaut 0,4,...,76. Les 20 fetchs et les 40 valeurs
+ALUResult/WriteData correspondent aux fichiers attendus.
+Le CSV recoupe ces valeurs a 1 ps avant chaque front dans le nouveau VCD.
+
+LT : a 130 ns, PC=0x2C et Instr=0xB2857001 (instruction 12).
+Flags=1000, CondEx=1, RegWrite=1, FlagWrite=00 ; ALUFlags=0000.
+Le testbench confirme explicitement LT au front de 135 ns. La condition
+utilise les flags sauvegardes de SUBS, pas les flags de l'addition courante.
+RegState est exporte sur 480 bits et prend 18 valeurs distinctes dans la trace.
+Son champ R2 vaut 5 apres 35 ns, puis 10 en fin de programme ; R3 vaut 12
+apres 45 ns. R0 est le champ faible. Le champ fort R14 et le signal R14
+du testbench restent nuls pendant l'execution observee.
+
+Apres le front de 215 ns, PC atteint 80 (0x50). A 230 ns, les sorties valent
+0 alors que les attendus conservent ALU=0x64 et Data=0x0A. Ces etats apres
+Done ne constituent pas de nouvelles comparaisons echouees.
+
+PROBLEMES ET LIMITES
+Aucune anomalie fonctionnelle observee sur ce programme ; aucune correction
+HDL ni modification des attendus effectuee.
+Apres le bilan, le script local de pilotage a tente de rouvrir une WCFG deja
+ouverte (Wavedata 42-52). Cet incident d'affichage n'appartient pas aux sources
+de la PR. Il est conserve dans le journal ; le cadrage a ensuite ete regle
+dans l'interface sans relancer les tests. Les avertissements VCD sur les types
+natural/boolean sont aussi conserves : compteurs et Done sont attestes par
+les lectures XSim et les captures, plutot que par leur export VCD.
+Ces essais confirment la conservation du comportement du Lab4 dans la nouvelle
+organisation. Ils ne valident pas CMP, Shifter, BL ni tous les programmes possibles.
+
+PREUVES
+capture_bilan_phase4.png : nouvelle capture, compteurs, Done, RegState et R14.
+capture_lt_phase4.png : nouvelle capture du cycle LT vers 130 ns, avant Done.
+journal_vivado_phase4.txt : execution Vivado/XSim, controle LT et bilan.
+simulation_phase4_haroun.vcd : nouvelles transitions de cette execution.
+comparaisons_phase4.csv : 20 lignes de comparaisons et observation des registres.
+Les prefixes de chemins locaux du journal sont anonymises par <ESPACE_LOCAL>.
+Les diagnostics et les resultats ne sont pas modifies ; l'original reste local.
+
+Conclusion : conservation du fonctionnement du Lab4 verifiee pour ce commit.
+La publication d'une revue APPROVE sur la PR #1 reste soumise a l'examen
+prealable du commentaire par Haroun. Aucune fusion n'est effectuee.
