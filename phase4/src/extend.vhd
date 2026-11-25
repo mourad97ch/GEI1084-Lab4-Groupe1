@@ -19,7 +19,7 @@ begin
                   x"00000" & Instr(11 downto 0)
                       when "01",
 
-                  "000000" & Instr(23 downto 0) & "00"
+                  (31 downto 26 => Instr(23)) & Instr(23 downto 0) & "00"
                       when "10",
 
                   (others => '0')
