@@ -1,0 +1,66 @@
+VERIFICATION INDEPENDANTE DU LAB 4 - HAROUN AZZABI - GROUPE 1
+GEI1084 | 25 novembre 2026
+
+Version testee : 390a93cd64f392c613f1358e5999441238bb1e5d
+Depot : https://github.com/mourad97ch/GEI1084-Lab4-Groupe1
+Branche de revue : review/haroun-lab4
+Outil observe : Vivado / XSim 2022.2.2, VHDL-2008.
+
+PERIMETRE ET PREPARATION
+Execution locale independante sur le poste de Haroun. Les 17 VHDL de src/,
+sim/tb_arm_lab4.vhd et les deux fichiers texte decomprimes ont ete utilises.
+Aucune source ni valeur fournie n'a ete modifiee. Aucun CMP, Shifter ou BL ajoute.
+Les 20 mots de la ROM correspondent a sim/Instructions.txt.
+Les empreintes SHA-256 avant/apres de src/ et sim/ sont identiques ; git diff
+sur ces repertoires est vide. Les preuves preexistantes de Mourad sont intactes.
+
+Pour reproduire : creer un projet local VHDL-2008, ajouter les 17 fichiers de
+src/ comme Design Sources, puis les trois fichiers de sim/ comme Simulation
+Sources. Tops : arm_lab4 et tb_arm_lab4. Lancer Run Simulation > Run Behavioral
+Simulation. Les deux .txt doivent etre exportes ou copies sans transformation
+dans le repertoire XSim ; le testbench garde ses chemins relatifs d'origine.
+Le projet local de cette execution est situe hors depot, dans
+../verification_haroun_lab4/vivado/Haroun_Lab4.xpr.
+
+RESULTATS REELLEMENT OBSERVES
+Le journal du testbench indique a 215 ns : Tests: 20; errors: 0.
+A 230 ns, les lectures XSim donnent :
+  Test_number = 20
+  Error_count = 0
+  Done = TRUE
+Horloge : 10 ns ; reset actif de 0 a 22 ns.
+Les fronts de comparaison vont de 25 a 215 ns. Le testbench evalue les signaux
+avant les mises a jour sequentielles du meme front (cycles delta VHDL).
+PC avant ces fronts : 0, 4, ..., 76. Les 20 instructions et les 40 valeurs
+ALUResult/WriteData correspondent aux fichiers du professeur.
+Le CSV joint recoupe ces valeurs dans le VCD a 1 ps avant chaque front.
+
+LT ET FLAGS
+A 130 ns, instruction 12 : PC=0x2C, Instr=0xB2857001 (ADDLT R7,R5,#1).
+ALUFlags=0000, Flags=1000, CondEx=1, RegWrite=1, FlagWrite=00.
+Les flags sauvegardes proviennent de SUBS R8,R7,R2 : 3-5=-2.
+LT teste N different de V, soit 1 different de 0 : l'addition est autorisee.
+Sans S, elle ne remplace pas les flags sauvegardes, meme si l'ALU calcule 0000.
+Le testbench confirme explicitement ce controle au front de 135 ns.
+
+FIN DU PROGRAMME ET CONCLUSION
+Apres le dernier front de 215 ns, PC atteint 80 (0x50) et les sorties peuvent
+changer. A 230 ns : ALUResult=0 et WriteData=0, tandis que les attendus restent
+0x64 et 0x0A. Ces etats posterieurs a Done ne sont pas de nouvelles erreurs.
+Conclusion : validation du programme Lab 4 fournie reussie, sans correction.
+Cette verification ne valide pas les extensions du mini-projet.
+
+PREUVES
+- capture_bilan_haroun.png : nouvelle capture de cette execution, compteurs et
+  Done visibles ; la colonne Value correspond a la fin du programme.
+- journal_vivado_haroun.txt : lancement, compilation, controle LT et bilan.
+- simulation_haroun.vcd : transitions des signaux logiques de cette execution.
+- comparaisons_haroun.csv : 20 comparaisons PC/instruction/ALUResult/WriteData.
+Les types natural/boolean des compteurs et de Done ne sont pas exportes par
+le VCD de XSim ; leurs valeurs sont observees dans le journal et la capture.
+Les avertissements d'environnement et de journalisation VCD sont conserves
+sans les assimiler a des echecs de comparaison.
+Aucune capture de Mourad n'a ete reutilisee.
+
+Confidentialite : les prefixes des chemins locaux du journal sont remplaces
+par <ESPACE_LOCAL>. Les messages de simulation et les resultats sont conserves.
