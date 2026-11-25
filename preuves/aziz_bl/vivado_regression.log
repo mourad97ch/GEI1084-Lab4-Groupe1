@@ -1,0 +1,973 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Nov 25 18:26:20 2026
+# Process ID: 9912
+# Current directory: C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review
+# Command line: vivado.exe -mode batch -source preuves/aziz_bl/run_regression.tcl -log preuves/aziz_bl/vivado_regression.log -journal preuves/aziz_bl/vivado_regression.jou
+# Log file: C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/preuves/aziz_bl/vivado_regression.log
+# Journal file: C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review\preuves/aziz_bl/vivado_regression.jou
+# Running On: DESKTOP-QILD18P, OS: Windows, CPU Frequency: 2918 MHz, CPU Physical cores: 10, Host memory: 16868 MB
+#-----------------------------------------------------------
+source preuves/aziz_bl/run_regression.tcl
+# set repo {C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review}
+# create_project -force Aziz_BL_Batch "$repo/vivado_aziz_batch" -part xc7z007sclg225-1
+create_project: Time (s): cpu = 00:00:22 ; elapsed = 00:00:33 . Memory (MB): peak = 410.387 ; gain = 60.645
+# set_property target_language VHDL [current_project]
+# add_files -norecurse [glob -directory "$repo/phase4/src" *.vhd]
+# add_files -fileset sim_1 -norecurse [glob -directory "$repo/phase4/sim" *]
+# set_property file_type {VHDL 2008} [get_files *.vhd]
+# set_property top mp1_system [get_filesets sources_1]
+# set_property xsim.simulate.runtime 110ns [get_filesets sim_1]
+# update_compile_order -fileset sources_1
+# update_compile_order -fileset sim_1
+# puts "CASE tb_bl BEGIN"
+CASE tb_bl BEGIN
+# set_property top tb_bl [get_filesets sim_1]
+# launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_bl'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_bl' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/BL.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Program.hex'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_bl_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/adder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'adder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/alu32.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu32'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/alu_arithmetic.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu_arithmetic'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/alu_decoder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu_decoder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/alu_flags.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu_flags'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/alu_select.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu_select'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/arm_mp1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'arm_mp1'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/condcheck.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'condcheck'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/condlogic.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'condlogic'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/data_memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'data_memory'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/datapath.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'datapath'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/extend.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'extend'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/instruction_rom.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'instruction_rom'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/main_decoder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_decoder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/mp1_system.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mp1_system'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/pc_logic.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'pc_logic'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/reg_enable.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'reg_enable'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/src/register_file.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'register_file'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/sim/tb_bl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tb_bl'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_bl_behav xil_defaultlib.tb_bl -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_bl_behav xil_defaultlib.tb_bl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="B...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture structural of entity xil_defaultlib.mp1_system [\mp1_system(program_file="BL.hex...]
+Compiling architecture simulation of entity xil_defaultlib.tb_bl
+Built simulation snapshot tb_bl_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_bl_behav -key {Behavioral:sim_1:Functional:tb_bl} -tclbatch {tb_bl.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_bl.tcl
+## current_wave_config
+Note: BL: 8 executed instructions; errors: 0
+Time: 96 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/sim/tb_bl.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_bl_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 110ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 451.180 ; gain = 40.723
+# close_sim
+INFO: [Simtcl 6-16] Simulation closed
+# puts "CASE tb_bl END"
+CASE tb_bl END
+# set_property xsim.simulate.runtime 230ns [get_filesets sim_1]
+# set_property top tb_bl_catalog [get_filesets sim_1]
+# foreach id {B1 B2 B3 B4 B5 B6 B7 B8} {
+#   set_property generic "PROGRAM_FILE=$id.hex EXPECTED_FILE=$id.trace TEST_ID=$id" [get_filesets sim_1]
+#   puts "CASE $id BEGIN"
+#   launch_simulation
+#   close_sim
+#   puts "CASE $id END"
+# }
+CASE B1 BEGIN
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_bl_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_bl_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/BL.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Program.hex'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_bl_catalog_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/sim/tb_bl_catalog.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tb_bl_catalog'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=B1.hex" -generic_top "EXPECTED_FILE=B1.trace" -generic_top "TEST_ID=B1" -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=B1.hex -generic_top EXPECTED_FILE=B1.trace -generic_top TEST_ID=B1 -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="B...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_bl_catalog
+Built simulation snapshot tb_bl_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_bl_catalog_behav -key {Behavioral:sim_1:Functional:tb_bl_catalog} -tclbatch {tb_bl_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_bl_catalog.tcl
+## current_wave_config
+Note: B1 cycles=3 errors=0
+Time: 46 ns  Iteration: 0  Process: /tb_bl_catalog/stimulus  File: C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/sim/tb_bl_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_bl_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 230ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 451.180 ; gain = 0.000
+INFO: [Simtcl 6-16] Simulation closed
+CASE B1 END
+CASE B2 BEGIN
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_bl_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_bl_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/BL.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Program.hex'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_bl_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=B2.hex" -generic_top "EXPECTED_FILE=B2.trace" -generic_top "TEST_ID=B2" -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=B2.hex -generic_top EXPECTED_FILE=B2.trace -generic_top TEST_ID=B2 -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="B...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_bl_catalog
+Built simulation snapshot tb_bl_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_bl_catalog_behav -key {Behavioral:sim_1:Functional:tb_bl_catalog} -tclbatch {tb_bl_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_bl_catalog.tcl
+## current_wave_config
+Note: B2 cycles=3 errors=0
+Time: 46 ns  Iteration: 0  Process: /tb_bl_catalog/stimulus  File: C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/sim/tb_bl_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_bl_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 230ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:10 . Memory (MB): peak = 451.180 ; gain = 0.000
+INFO: [Simtcl 6-16] Simulation closed
+CASE B2 END
+CASE B3 BEGIN
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_bl_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_bl_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/BL.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Program.hex'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_bl_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=B3.hex" -generic_top "EXPECTED_FILE=B3.trace" -generic_top "TEST_ID=B3" -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=B3.hex -generic_top EXPECTED_FILE=B3.trace -generic_top TEST_ID=B3 -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="B...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_bl_catalog
+Built simulation snapshot tb_bl_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_bl_catalog_behav -key {Behavioral:sim_1:Functional:tb_bl_catalog} -tclbatch {tb_bl_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_bl_catalog.tcl
+## current_wave_config
+Note: B3 cycles=10 errors=0
+Time: 116 ns  Iteration: 0  Process: /tb_bl_catalog/stimulus  File: C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/sim/tb_bl_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_bl_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 230ns
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 451.180 ; gain = 0.000
+INFO: [Simtcl 6-16] Simulation closed
+CASE B3 END
+CASE B4 BEGIN
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_bl_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_bl_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/BL.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Program.hex'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_bl_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=B4.hex" -generic_top "EXPECTED_FILE=B4.trace" -generic_top "TEST_ID=B4" -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=B4.hex -generic_top EXPECTED_FILE=B4.trace -generic_top TEST_ID=B4 -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="B...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_bl_catalog
+Built simulation snapshot tb_bl_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_bl_catalog_behav -key {Behavioral:sim_1:Functional:tb_bl_catalog} -tclbatch {tb_bl_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_bl_catalog.tcl
+## current_wave_config
+Note: B4 cycles=3 errors=0
+Time: 46 ns  Iteration: 0  Process: /tb_bl_catalog/stimulus  File: C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/sim/tb_bl_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_bl_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 230ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 451.180 ; gain = 0.000
+INFO: [Simtcl 6-16] Simulation closed
+CASE B4 END
+CASE B5 BEGIN
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_bl_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_bl_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/BL.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Program.hex'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_bl_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=B5.hex" -generic_top "EXPECTED_FILE=B5.trace" -generic_top "TEST_ID=B5" -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=B5.hex -generic_top EXPECTED_FILE=B5.trace -generic_top TEST_ID=B5 -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="B...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_bl_catalog
+Built simulation snapshot tb_bl_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_bl_catalog_behav -key {Behavioral:sim_1:Functional:tb_bl_catalog} -tclbatch {tb_bl_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_bl_catalog.tcl
+## current_wave_config
+Note: B5 cycles=5 errors=0
+Time: 66 ns  Iteration: 0  Process: /tb_bl_catalog/stimulus  File: C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/sim/tb_bl_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_bl_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 230ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 451.180 ; gain = 0.000
+INFO: [Simtcl 6-16] Simulation closed
+CASE B5 END
+CASE B6 BEGIN
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_bl_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_bl_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/BL.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Program.hex'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_bl_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=B6.hex" -generic_top "EXPECTED_FILE=B6.trace" -generic_top "TEST_ID=B6" -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=B6.hex -generic_top EXPECTED_FILE=B6.trace -generic_top TEST_ID=B6 -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="B...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_bl_catalog
+Built simulation snapshot tb_bl_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_bl_catalog_behav -key {Behavioral:sim_1:Functional:tb_bl_catalog} -tclbatch {tb_bl_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_bl_catalog.tcl
+## current_wave_config
+Note: B6 cycles=7 errors=0
+Time: 86 ns  Iteration: 0  Process: /tb_bl_catalog/stimulus  File: C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/sim/tb_bl_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_bl_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 230ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 451.180 ; gain = 0.000
+INFO: [Simtcl 6-16] Simulation closed
+CASE B6 END
+CASE B7 BEGIN
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_bl_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_bl_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/BL.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Program.hex'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_bl_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=B7.hex" -generic_top "EXPECTED_FILE=B7.trace" -generic_top "TEST_ID=B7" -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=B7.hex -generic_top EXPECTED_FILE=B7.trace -generic_top TEST_ID=B7 -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="B...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_bl_catalog
+Built simulation snapshot tb_bl_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_bl_catalog_behav -key {Behavioral:sim_1:Functional:tb_bl_catalog} -tclbatch {tb_bl_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_bl_catalog.tcl
+## current_wave_config
+Note: B7 cycles=3 errors=0
+Time: 46 ns  Iteration: 0  Process: /tb_bl_catalog/stimulus  File: C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/sim/tb_bl_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_bl_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 230ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 451.180 ; gain = 0.000
+INFO: [Simtcl 6-16] Simulation closed
+CASE B7 END
+CASE B8 BEGIN
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_bl_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_bl_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/BL.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Program.hex'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_bl_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=B8.hex" -generic_top "EXPECTED_FILE=B8.trace" -generic_top "TEST_ID=B8" -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=B8.hex -generic_top EXPECTED_FILE=B8.trace -generic_top TEST_ID=B8 -L xil_defaultlib -L secureip --snapshot tb_bl_catalog_behav xil_defaultlib.tb_bl_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="B...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_bl_catalog
+Built simulation snapshot tb_bl_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_bl_catalog_behav -key {Behavioral:sim_1:Functional:tb_bl_catalog} -tclbatch {tb_bl_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_bl_catalog.tcl
+## current_wave_config
+Note: B8 cycles=4 errors=0
+Time: 56 ns  Iteration: 0  Process: /tb_bl_catalog/stimulus  File: C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/sim/tb_bl_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_bl_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 230ns
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 451.180 ; gain = 0.000
+INFO: [Simtcl 6-16] Simulation closed
+CASE B8 END
+# set_property top tb_mp1 [get_filesets sim_1]
+# set_property generic {PROGRAM_FILE=Instructions.txt EXPECTED_FILE=ExpectedData.txt} [get_filesets sim_1]
+# puts "CASE tb_mp1 BEGIN"
+CASE tb_mp1 BEGIN
+# launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_mp1'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_mp1' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/B8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/BL.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim/Program.hex'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_mp1_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/sim/tb_mp1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tb_mp1'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=Instructions.txt" -generic_top "EXPECTED_FILE=ExpectedData.txt" -L xil_defaultlib -L secureip --snapshot tb_mp1_behav xil_defaultlib.tb_mp1 -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=Instructions.txt -generic_top EXPECTED_FILE=ExpectedData.txt -L xil_defaultlib -L secureip --snapshot tb_mp1_behav xil_defaultlib.tb_mp1 -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(1,11)\]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture structural of entity xil_defaultlib.mp1_system [\mp1_system(1,11)\]
+Compiling architecture simulation of entity xil_defaultlib.tb_mp1
+Built simulation snapshot tb_mp1_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/vivado_aziz_batch/Aziz_BL_Batch.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_mp1_behav -key {Behavioral:sim_1:Functional:tb_mp1} -tclbatch {tb_mp1.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_mp1.tcl
+## current_wave_config
+Note: LT: NZCV=1000, CondEx=1, RegWrite=1, FlagWrite=00
+Time: 135 ns  Iteration: 0  Process: /tb_mp1/stimulus  File: C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/sim/tb_mp1.vhd
+Note: Tests: 20; errors: 0
+Time: 215 ns  Iteration: 0  Process: /tb_mp1/stimulus  File: C:/Users/USER/Downloads/GEI1084-Lab4-Groupe1-review/phase4/sim/tb_mp1.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_mp1_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 230ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 451.180 ; gain = 0.000
+# close_sim
+INFO: [Simtcl 6-16] Simulation closed
+# puts "CASE tb_mp1 END"
+CASE tb_mp1 END
+# close_project
+# exit
+INFO: [Common 17-206] Exiting Vivado at Wed Nov 25 18:28:35 2026...
