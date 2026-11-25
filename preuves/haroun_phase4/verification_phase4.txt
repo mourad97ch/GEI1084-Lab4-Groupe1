@@ -69,7 +69,7 @@ Ces essais confirment la conservation du comportement du Lab4 dans la nouvelle
 organisation. Ils ne valident pas CMP, Shifter, BL ni tous les programmes possibles.
 
 PREUVES
-capture_bilan_phase4.png : nouvelle capture, compteurs, Done, RegState et R14.
+capture_bilan_phase4.png : capture fournie par Haroun, compteurs 20/0, Done=TRUE, RegState et R14.
 capture_lt_phase4.png : capture fournie par Haroun du cycle LT vers 130 ns, avant Done.
 journal_vivado_phase4.txt : execution Vivado/XSim, controle LT et bilan.
 simulation_phase4_haroun.vcd : nouvelles transitions de cette execution.
