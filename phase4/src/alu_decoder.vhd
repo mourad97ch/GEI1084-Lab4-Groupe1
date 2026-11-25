@@ -28,6 +28,10 @@ begin
         when "1100" =>                     -- ORR / ORRS
           ALUControl <= "11";
           if Funct(0) = '1' then FlagW <= "10"; end if;
+          --modification
+          when "1010" =>                     -- CMP
+          ALUControl <= "01";
+          FlagW <= "11";
         when others =>
           null;
       end case;
