@@ -1,0 +1,571 @@
+$date
+   Wed Nov 25 16:24:29 2026
+$end
+$version
+  2022.2.2
+$end
+$timescale
+  1ps
+$end
+$scope module tb_shift_catalog $end
+$var wire 1 # CLK $end
+$var wire 1 $ Reset $end
+$var wire 32 ! PC $end
+$var wire 32 " Instruction $end
+$var wire 32 & Instr $end
+$var wire 32 ' ALUResult $end
+$var wire 32 ( WriteData $end
+$var wire 4 ) ALUFlags $end
+$var wire 4 * Flags $end
+$var wire 2 + FlagWrite $end
+$var wire 1 , CondEx $end
+$var wire 1 - RegWrite $end
+$var wire 1 . MemWrite $end
+$var wire 1 / PCSrc $end
+$var wire 480 % RegState $end
+$scope module rom_unit $end
+$var wire 32 ! PC $end
+$var wire 32 " Instr $end
+$scope  initialize $end
+$upscope $end
+$scope task line__26 $end
+$upscope $end
+$upscope $end
+$scope module dut $end
+$var wire 1 # CLK $end
+$var wire 1 $ Reset $end
+$var wire 32 " Instruction $end
+$var wire 480 % RegState $end
+$var wire 32 ! PC $end
+$var wire 32 & Instr $end
+$var wire 32 ' ALUResult $end
+$var wire 32 ( WriteData $end
+$var wire 4 ) ALUFlags $end
+$var wire 4 * Flags $end
+$var wire 2 + FlagWrite $end
+$var wire 1 , CondEx $end
+$var wire 1 - RegWrite $end
+$var wire 1 . MemWrite $end
+$var wire 1 / PCSrc $end
+$var wire 32 0 pc_s $end
+$var wire 32 1 pc4_s $end
+$var wire 32 2 pc8_s $end
+$var wire 32 3 pcnext_s $end
+$var wire 32 4 instr_s $end
+$var wire 32 5 result_s $end
+$var wire 4 6 aluflags_s $end
+$var wire 2 7 immsrc_s $end
+$var wire 2 8 regsrc_s $end
+$var wire 2 9 alucontrol_s $end
+$var wire 2 : flagw_s $end
+$var wire 1 ; branch_s $end
+$var wire 1 < memtoreg_s $end
+$var wire 1 = memw_s $end
+$var wire 1 > alusrc_s $end
+$var wire 1 ? regw_s $end
+$var wire 1 @ aluop_s $end
+$var wire 1 A pcs_s $end
+$var wire 1 B pcsrc_s $end
+$var wire 1 C regwrite_s $end
+$var wire 1 D memwrite_s $end
+$scope module pc_register $end
+$var wire 1 # CLK $end
+$var wire 1 $ Reset $end
+$var wire 1 E Enable $end
+$var wire 32 3 D $end
+$var wire 32 0 Q $end
+$upscope $end
+$scope module pc_plus4 $end
+$var wire 32 0 a $end
+$var wire 32 F b $end
+$var wire 32 1 y $end
+$upscope $end
+$scope module pc_plus8 $end
+$var wire 32 1 a $end
+$var wire 32 G b $end
+$var wire 32 2 y $end
+$upscope $end
+$scope module main_unit $end
+$var wire 2 H Op $end
+$var wire 1 I Funct5 $end
+$var wire 1 J Funct0 $end
+$var wire 1 ; Branch $end
+$var wire 1 < MemtoReg $end
+$var wire 1 = MemW $end
+$var wire 1 > ALUSrc $end
+$var wire 1 ? RegW $end
+$var wire 1 @ ALUOp $end
+$var wire 2 7 ImmSrc $end
+$var wire 2 8 RegSrc $end
+$upscope $end
+$scope module alu_control_unit $end
+$var wire 1 @ ALUOp $end
+$var wire 5 K Funct $end
+$var wire 2 9 ALUControl $end
+$var wire 2 : FlagW $end
+$upscope $end
+$scope module pc_unit $end
+$var wire 4 L Rd $end
+$var wire 1 ? RegW $end
+$var wire 1 ; Branch $end
+$var wire 1 A PCSrc $end
+$upscope $end
+$scope module condition_unit $end
+$var wire 1 # CLK $end
+$var wire 1 $ Reset $end
+$var wire 4 M Cond $end
+$var wire 4 6 ALUFlags $end
+$var wire 2 : FlagW $end
+$var wire 1 ? RegW $end
+$var wire 1 = MemW $end
+$var wire 1 A PCS $end
+$var wire 1 C RegWrite $end
+$var wire 1 D MemWrite $end
+$var wire 1 B PCSrc $end
+$var wire 1 , CondEx $end
+$var wire 2 + FlagWrite $end
+$var wire 4 * Flags $end
+$var wire 4 N saved $end
+$var wire 2 O enable_flags $end
+$var wire 1 P condition_ok $end
+$var wire 1 Q execute $end
+$scope module check_unit $end
+$var wire 4 M Cond $end
+$var wire 4 N Flags $end
+$var wire 1 P CondEx $end
+$var wire 1 R N $end
+$var wire 1 S Z $end
+$var wire 1 T C $end
+$var wire 1 U V $end
+$var wire 1 V GE $end
+$upscope $end
+$scope module nz_unit $end
+$var wire 1 # CLK $end
+$var wire 1 $ Reset $end
+$var wire 1 W Enable $end
+$var wire 2 X D $end
+$var wire 2 Y Q $end
+$upscope $end
+$scope module cv_unit $end
+$var wire 1 # CLK $end
+$var wire 1 $ Reset $end
+$var wire 1 Z Enable $end
+$var wire 2 [ D $end
+$var wire 2 \ Q $end
+$upscope $end
+$upscope $end
+$scope module datapath_unit $end
+$var wire 480 % RegState $end
+$var wire 1 # CLK $end
+$var wire 32 4 Instr $end
+$var wire 32 2 PCPlus8 $end
+$var wire 1 < MemtoReg $end
+$var wire 1 D MemWrite $end
+$var wire 2 9 ALUControl $end
+$var wire 1 > ALUSrc $end
+$var wire 2 7 ImmSrc $end
+$var wire 1 C RegWrite $end
+$var wire 2 8 RegSrc $end
+$var wire 4 6 Flags $end
+$var wire 32 ] SrcA $end
+$var wire 32 ^ SrcB $end
+$var wire 32 ' ALUResult $end
+$var wire 32 5 Output $end
+$var wire 32 ( WriteData $end
+$var wire 4 _ ra1_s $end
+$var wire 4 ` ra2_s $end
+$var wire 32 a rd1_s $end
+$var wire 32 b rd2_s $end
+$var wire 32 c extimm_s $end
+$var wire 32 d shifted_s $end
+$var wire 32 e srcb_s $end
+$var wire 32 f alu_result_s $end
+$var wire 32 g read_data_s $end
+$var wire 32 h output_s $end
+$scope module registers_unit $end
+$var wire 480 % RegState $end
+$var wire 1 # CLK $end
+$var wire 1 C RegWrite $end
+$var wire 4 _ RA1 $end
+$var wire 4 ` RA2 $end
+$var wire 4 L A3 $end
+$var wire 32 h WD3 $end
+$var wire 32 2 R15 $end
+$var wire 32 a RD1 $end
+$var wire 32 b RD2 $end
+$scope begin \observe_registers(0)\ $end
+$upscope $end
+$scope begin \observe_registers(1)\ $end
+$upscope $end
+$scope begin \observe_registers(2)\ $end
+$upscope $end
+$scope begin \observe_registers(3)\ $end
+$upscope $end
+$scope begin \observe_registers(4)\ $end
+$upscope $end
+$scope begin \observe_registers(5)\ $end
+$upscope $end
+$scope begin \observe_registers(6)\ $end
+$upscope $end
+$scope begin \observe_registers(7)\ $end
+$upscope $end
+$scope begin \observe_registers(8)\ $end
+$upscope $end
+$scope begin \observe_registers(9)\ $end
+$upscope $end
+$scope begin \observe_registers(10)\ $end
+$upscope $end
+$scope begin \observe_registers(11)\ $end
+$upscope $end
+$scope begin \observe_registers(12)\ $end
+$upscope $end
+$scope begin \observe_registers(13)\ $end
+$upscope $end
+$scope begin \observe_registers(14)\ $end
+$upscope $end
+$upscope $end
+$scope module extend_unit $end
+$var wire 24 i Instr $end
+$var wire 2 7 ImmSrc $end
+$var wire 32 c ExtImm $end
+$upscope $end
+$scope module shifter_unit $end
+$var wire 32 b A $end
+$var wire 5 j shamt $end
+$var wire 2 k sh $end
+$var wire 1 l bit4 $end
+$var wire 32 d Y $end
+$scope task line__27 $end
+$upscope $end
+$upscope $end
+$scope module alu_unit $end
+$var wire 32 a A $end
+$var wire 32 e B $end
+$var wire 2 9 ALUControl $end
+$var wire 32 f Result $end
+$var wire 4 6 ALUFlags $end
+$var wire 32 m arithmetic_result $end
+$var wire 1 n arithmetic_carry $end
+$var wire 32 o selected_result $end
+$var wire 1 p is_arithmetic $end
+$var wire 1 q is_subtract $end
+$scope module arithmetic_unit $end
+$var wire 32 a A $end
+$var wire 32 e B $end
+$var wire 1 q SUBTRACT $end
+$var wire 32 m ARITHMETIC $end
+$var wire 1 n CARRY $end
+$var wire 32 r b_effectif $end
+$var wire 33 s retenue_entree $end
+$var wire 33 t somme $end
+$upscope $end
+$scope module result_unit $end
+$var wire 32 a A $end
+$var wire 32 e B $end
+$var wire 32 m Sum $end
+$var wire 2 9 ALUControl $end
+$var wire 32 o Result $end
+$upscope $end
+$scope module flags_unit $end
+$var wire 32 a A $end
+$var wire 32 e B $end
+$var wire 32 o RESULT $end
+$var wire 1 u SUM31 $end
+$var wire 1 n CARRY_IN $end
+$var wire 1 p ARITHMETIC $end
+$var wire 1 q SUBTRACT $end
+$var wire 4 6 FLAGS $end
+$upscope $end
+$upscope $end
+$scope module memory_unit $end
+$var wire 1 # CLK $end
+$var wire 1 D MemWrite $end
+$var wire 32 f A $end
+$var wire 32 b WD $end
+$var wire 32 g RD $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope task stimulus $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 !
+b11100010100000000001000011110000 "
+0#
+1$
+b0 %
+b11100010100000000001000011110000 &
+b11110000 '
+b0 (
+b0 )
+b0 *
+b0 +
+1,
+0-
+0.
+0/
+b0 0
+b100 1
+b1000 2
+b100 3
+b11100010100000000001000011110000 4
+b11110000 5
+b0 6
+b0 7
+b0 8
+b0 9
+b0 :
+0;
+0<
+0=
+1>
+1?
+1@
+0A
+0B
+0C
+0D
+1E
+b100 F
+b100 G
+b0 H
+1I
+0J
+b1000 K
+b1 L
+b1110 M
+b0 N
+b0 O
+1P
+0Q
+0R
+0S
+0T
+0U
+1V
+0W
+b0 X
+b0 Y
+0Z
+b0 [
+b0 \
+b0 ]
+b11110000 ^
+b0 _
+b0 `
+b0 a
+b0 b
+b11110000 c
+b0 d
+b11110000 e
+b11110000 f
+b0 g
+b11110000 h
+b100000000001000011110000 i
+b1 j
+b11 k
+1l
+b11110000 m
+0n
+b11110000 o
+1p
+0q
+b11110000 r
+b0 s
+b11110000 t
+0u
+$end
+#5000
+1#
+#10000
+0#
+#15000
+1#
+#20000
+0#
+#22000
+0$
+1-
+1C
+1Q
+#25000
+b100 !
+b11100010100000000010000011111111 "
+1#
+b1111000000000000000000000000000000000000 %
+b11100010100000000010000011111111 &
+b11111111 '
+b1100 (
+b100 0
+b1000 1
+b1100 2
+b1000 3
+b11100010100000000010000011111111 4
+b11111111 5
+b0 H
+1I
+0J
+b1000 K
+b10 L
+b1110 M
+b11111111 ^
+b1111 `
+b1100 b
+b11111111 c
+b1100 d
+b11111111 e
+b11111111 f
+b11111111 h
+b100000000010000011111111 i
+b1 j
+b11 k
+1l
+b11111111 m
+b11111111 o
+b11111111 r
+b11111111 t
+0u
+#30000
+0#
+#35000
+b1000 !
+b11100000000000100011001000100001 "
+1#
+b111111110000000000000000000000001111000000000000000000000000000000000000 %
+b11100000000000100011001000100001 &
+b1111 '
+b11110000 (
+b0 )
+b1000 0
+b1100 1
+b10000 2
+b1100 3
+b11100000000000100011001000100001 4
+b1111 5
+b0 6
+b10 9
+0>
+1?
+1@
+b0 H
+0I
+0J
+b0 K
+b11 L
+b1110 M
+b0 X
+b11111111 ]
+b1111 ^
+b10 _
+b1 `
+b11111111 a
+b11110000 b
+b100001 c
+b1111 d
+b1111 e
+b1111 f
+b1111 h
+b100011001000100001 i
+b100 j
+b1 k
+0l
+b100001110 m
+b1111 o
+0p
+b1111 r
+b100001110 t
+0u
+#40000
+0#
+#45000
+b1100 !
+b11100000000000100100001000000001 "
+1#
+b1111000000000000000000000000111111110000000000000000000000001111000000000000000000000000000000000000 %
+b11100000000000100100001000000001 &
+b0 '
+b100 )
+b1100 0
+b10000 1
+b10100 2
+b10000 3
+b11100000000000100100001000000001 4
+b0 5
+b100 6
+b0 H
+0I
+0J
+b0 K
+b100 L
+b1110 M
+b1 X
+b111100000000 ^
+b1 c
+b111100000000 d
+b111100000000 e
+b0 f
+b0 h
+b100100001000000001 i
+b100 j
+b0 k
+0l
+b111111111111 m
+b0 o
+b111100000000 r
+b111111111111 t
+0u
+#50000
+0#
+#55000
+b10000 !
+b11101100000000000000000000000000 "
+1#
+b11101100000000000000000000000000 &
+b0 '
+b0 (
+b100 )
+0-
+b10000 0
+b10100 1
+b11000 2
+b10100 3
+b11101100000000000000000000000000 4
+b0 5
+b100 6
+b0 9
+0?
+0@
+0C
+b11 H
+0I
+0J
+b0 K
+b0 L
+b1110 M
+b1 X
+b0 ]
+b0 ^
+b0 _
+b0 `
+b0 a
+b0 b
+b0 c
+b0 d
+b0 e
+b0 f
+b0 h
+b0 i
+b0 j
+b0 k
+0l
+b0 m
+b0 o
+1p
+b0 r
+b0 t
+0u
+#56000
+0#

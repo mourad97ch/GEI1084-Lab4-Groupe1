@@ -1,0 +1,69 @@
+VERIFICATION INDEPENDANTE SHIFTER - HAROUN AZZABI - GROUPE 1
+25 novembre 2026 | GEI1084
+
+Version testee : feature/shift
+Commit : c5fc234a3089a7a657b98d17de99c5a19785d3d6
+Vivado/XSim 2022.2.2 ; VHDL 2008.
+Branche de preuves : review/haroun-shift, creee depuis ce commit.
+
+INTERFACES EXAMINEES
+19 sources phase4/src, sans les sources Lab4 de la racine.
+RD2 -> shifter -> entree registre du mux ALUSrc.
+Instr(11:7) -> shamt ; Instr(6:5) -> sh ; Instr(4) -> bit4.
+L'immediat extimm_s contourne le shifter. WriteData et la donnee memoire
+proviennent toujours de rd2_s. Instanciation par component.
+Le diff HDL porte uniquement sur datapath.vhd et le nouveau shifter.vhd.
+CMP et BL ne sont pas integres a cette version.
+
+EXECUTION REELLE
+Nouvelle compilation et simulation locale, distincte des essais phase4 anterieurs.
+S1-S10 : 38 cycles au total, zero erreur ; Done=TRUE pour chaque scenario.
+Cycles : S1=2, S2=2, S3=3, S4=3, S5=4, S6=6, S7=4, S8=4, S9=6, S10=4.
+Le banc fourni controle PC, instruction, ALUResult, WriteData, les commandes,
+les flags, le PC suivant et R0-R14. Les programmes et traces correspondent
+au modele Python fourni (verification en memoire, sans regeneration des fichiers).
+Regression tb_mp1 : 20 tests, zero erreur, Done=TRUE a 230 ns.
+Le journal confirme LT : NZCV=1000, CondEx=1, RegWrite=1, FlagWrite=00.
+Le catalogue est simule jusqu'a 300 ns par scenario. Horloge 10 ns, reset 22 ns.
+44 fichiers src/sim controles par SHA-256 avant/apres : aucun changement.
+
+ECART CONFIRME, HORS DU CATALOGUE S1-S10
+Un banc minimal separe applique directement au shifter :
+A=80000001, sh=01 (LSR), shamt=00000, bit4=0.
+Observe sous XSim a 1 ns : Y=80000001.
+En encodage ARM A32, imm5=00000 pour LSR signifie un decalage de 32 bits,
+et le resultat attendu est 00000000. Le VHDL appelle shift_right(A,0).
+Le modele Python traite aussi ce champ comme zero et le catalogue ne teste
+pas cette limite : le succes de S1-S10 ne detecte donc pas cet ecart.
+Reference primaire : ARM DDI0406C.d, section A8.4.3, DecodeImmShift.
+https://documentation-service.arm.com/static/5f8daeb7f86e16515cdb8c4e
+La conformite ARM complete du LSR ne peut pas etre approuvee en l'etat.
+Si le cours exclut explicitement ce cas, cette restriction doit etre documentee.
+Aucune correction effectuee : resultat conserve avant toute modification.
+Le banc tb_lsr32_review.vhd est une reproduction de revue, pas une source du processeur.
+
+PREUVES ET LIMITES
+resultats.csv : bilan des dix scenarios fournis et de la regression.
+logs/*.log : journaux XSim de chaque execution.
+journal_vivado.txt : execution complete et lectures des compteurs et Done.
+journal_lsr32.txt et tb_lsr32_review.vhd : reproduction du cas limite.
+S1.vcd ... S10.vcd et REG.vcd : transitions reelles.
+Les types natural/boolean ne sont pas exportables en VCD par cet XSim ;
+les compteurs et Done sont attestes par les lectures XSim et le journal.
+Les prefixes des chemins locaux sont remplaces par <ESPACE_LOCAL> dans
+les copies des journaux ; diagnostics et valeurs sont conserves.
+Les originaux complets et les projets Vivado restent localement hors du depot.
+Ces essais ne valident ni CMP, ni BL, ni le processeur final integre.
+Aucune fusion et aucune modification des sources ou attendus d'Hatem.
+
+CAPTURE ET REPRODUCTION
+capture_S10_haroun.png : capture realisee et fournie par Haroun ; S10, 4 cycles,
+Error_count=0, Done=TRUE, RegState et signaux internes du shifter visibles.
+La capture couvre S10 ; les neuf autres scenarios et la regression sont attestes
+par leurs journaux individuels, le bilan global et les traces VCD.
+Pour reproduire : vivado -mode batch -source preuves/haroun_shift/reproduire_catalogue.tcl
+Les resultats de reproduction vont dans ../reproduction_haroun_shift/resultats/
+et ne remplacent pas les preuves conservees ici.
+Cas limite : compiler phase4/src/shifter.vhd et preuves/haroun_shift/tb_lsr32_review.vhd
+en VHDL 2008, top tb_lsr32_review, puis simuler 2 ns.
+
