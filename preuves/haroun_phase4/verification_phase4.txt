@@ -70,7 +70,7 @@ organisation. Ils ne valident pas CMP, Shifter, BL ni tous les programmes possib
 
 PREUVES
 capture_bilan_phase4.png : nouvelle capture, compteurs, Done, RegState et R14.
-capture_lt_phase4.png : nouvelle capture du cycle LT vers 130 ns, avant Done.
+capture_lt_phase4.png : capture fournie par Haroun du cycle LT vers 130 ns, avant Done.
 journal_vivado_phase4.txt : execution Vivado/XSim, controle LT et bilan.
 simulation_phase4_haroun.vcd : nouvelles transitions de cette execution.
 comparaisons_phase4.csv : 20 lignes de comparaisons et observation des registres.
