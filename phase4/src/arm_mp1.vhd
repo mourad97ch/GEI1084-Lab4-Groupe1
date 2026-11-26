@@ -9,13 +9,16 @@ entity arm_mp1 is
     ALUFlags, Flags : out std_logic_vector(3 downto 0);
     FlagWrite : out std_logic_vector(1 downto 0);
     CondEx, RegWrite, MemWrite, PCSrc : out std_logic
+
   );
 end entity;
 
 architecture structural of arm_mp1 is
 component main_decoder
   port (
-Op : in std_logic_vector(1 downto 0);
+    Op : in std_logic_vector(1 downto 0);
+        --modification
+    Opcode : in std_logic_vector(3 downto 0);
     Funct5, Funct0 : in std_logic;
     Branch, MemtoReg, MemW, ALUSrc, RegW, ALUOp : out std_logic;
     ImmSrc, RegSrc : out std_logic_vector(1 downto 0)
@@ -37,6 +40,8 @@ Rd : in std_logic_vector(3 downto 0);
 end component;
 component datapath
   port (
+PCPlus4 : in std_logic_vector(31 downto 0);
+Link : in std_logic;
 RegState : out std_logic_vector(479 downto 0);
 CLK        : in  std_logic;
         Instr      : in  std_logic_vector(31 downto 0);
@@ -89,8 +94,11 @@ end component;
   signal aluflags_s : std_logic_vector(3 downto 0);
   signal immsrc_s, regsrc_s, alucontrol_s, flagw_s : std_logic_vector(1 downto 0);
   signal branch_s, memtoreg_s, memw_s, alusrc_s, regw_s, aluop_s : std_logic;
+  signal link_s, effective_regw_s : std_logic;
   signal pcs_s, pcsrc_s, regwrite_s, memwrite_s : std_logic;
 begin
+  link_s <= branch_s and instr_s(24);
+  effective_regw_s <= regw_s or link_s;
   pcnext_s <= result_s when pcsrc_s = '1' else pc4_s;
   pc_register : reg_enable generic map (WIDTH => 32)
     port map (CLK => CLK, Reset => Reset, Enable => '1', D => pcnext_s, Q => pc_s);
@@ -101,6 +109,8 @@ begin
   main_unit : main_decoder
     port map (
       Op => instr_s(27 downto 26), Funct5 => instr_s(25), Funct0 => instr_s(20),
+      --modification
+      Opcode => instr_s(24 downto 21),
       Branch => branch_s, MemtoReg => memtoreg_s, MemW => memw_s, ALUSrc => alusrc_s,
       RegW => regw_s, ALUOp => aluop_s, ImmSrc => immsrc_s, RegSrc => regsrc_s
     );
@@ -110,19 +120,19 @@ begin
               ALUControl => alucontrol_s, FlagW => flagw_s);
 
   pc_unit : pc_logic
-    port map (Rd => instr_s(15 downto 12), RegW => regw_s, Branch => branch_s, PCSrc => pcs_s);
+    port map (Rd => instr_s(15 downto 12), RegW => effective_regw_s, Branch => branch_s, PCSrc => pcs_s);
 
   condition_unit : condlogic
     port map (
       CLK => CLK, Reset => Reset, Cond => instr_s(31 downto 28), ALUFlags => aluflags_s,
-      FlagW => flagw_s, RegW => regw_s, MemW => memw_s, PCS => pcs_s,
+      FlagW => flagw_s, RegW => effective_regw_s, MemW => memw_s, PCS => pcs_s,
       RegWrite => regwrite_s, MemWrite => memwrite_s, PCSrc => pcsrc_s,
       CondEx => CondEx, FlagWrite => FlagWrite, Flags => Flags
     );
 
   datapath_unit : datapath
     port map (
-      RegState => RegState, CLK => CLK, Instr => instr_s, PCPlus8 => pc8_s, MemtoReg => memtoreg_s,
+      PCPlus4 => pc4_s, Link => link_s, RegState => RegState, CLK => CLK, Instr => instr_s, PCPlus8 => pc8_s, MemtoReg => memtoreg_s,
       MemWrite => memwrite_s, ALUControl => alucontrol_s, ALUSrc => alusrc_s,
       ImmSrc => immsrc_s, RegWrite => regwrite_s, RegSrc => regsrc_s,
       Flags => aluflags_s, SrcA => open, SrcB => open, ALUResult => ALUResult,

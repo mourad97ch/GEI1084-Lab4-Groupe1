@@ -1,0 +1,9 @@
+ID,Function,Expected,Observed,Status,EvidencePath
+B1,B preserves LR=77,Full expected architectural trace,3 cycles,PASS,04_RESULTS/BL/B1.log
+B2,Forward BL writes LR=8 and targets16,Full expected architectural trace,3 cycles,PASS,04_RESULTS/BL/B2.log
+B3,PC=32: LR=36 and target48,Full expected architectural trace,10 cycles,PASS,04_RESULTS/BL/B3.log
+B4,"Backward BL to8, LR=24",Full expected architectural trace,3 cycles,PASS,04_RESULTS/BL/B4.log
+B5,BLEQ true after SUBS equality,Full expected architectural trace,5 cycles,PASS,04_RESULTS/BL/B5.log
+B6,BLEQ false: LR=77 and sequential PC,Full expected architectural trace,7 cycles,PASS,04_RESULTS/BL/B6.log
+B7,Ordinary writes after BL use normal destination and data,Full expected architectural trace,3 cycles,PASS,04_RESULTS/BL/B7.log
+B8,LR persists across three ordinary writes,Full expected architectural trace,4 cycles,PASS,04_RESULTS/BL/B8.log
