@@ -1,0 +1,85 @@
+VERIFICATION INDEPENDANTE FINALE - HAROUN AZZABI - GROUPE 1
+GEI1084 - 25 novembre 2026
+
+COMMITS REELLEMENT EXECUTES
+Processeur integre : aziz/integration-final
+e9d390c85a337f693b95751cfb892ef31a3b6371
+Shifter corrige separe : feature/shift
+8970f72eca9ad843d05e034adf33e0e637fd5b20
+Outils : xvhdl / xelab / XSim de Vivado 2022.2.2, VHDL 2008.
+Projets, snapshots WDB et donnees de travail hors du depot.
+
+RESULTATS OBSERVES
+Version integree : C1-C7, S1-S11, B1-B8, Lab4 historique 20 cycles,
+tb_mp1 27 instructions, et banc minimal LSR #32 : tous PASS.
+Version Shifter corrigee seule : S1-S11, tb_mp1 27 instructions et
+banc minimal LSR #32 : tous PASS.
+Chaque banc catalogue est verifie avec son nombre exact de cycles,
+Error_count=0 et Done=TRUE. Le banc minimal ne comporte pas Done :
+il lit Y apres 1 ns. Les resultats complets sont dans resultats.csv.
+Total : 42 executions distinctes ; aucune erreur fonctionnelle observee.
+
+COUVERTURE POUR LE GROUPE
+tableau_groupe.csv distingue les scenarios effectivement executes des
+cas R1-R7 inclus dans ces scenarios. R1-R6 viennent du rejeu Lab4 de 20
+instructions ; R7 vient de B1. Ces sept lignes ne sont pas sept simulations
+supplementaires. Le catalogue officiel de 32 cas est ainsi couvert ; S11
+est un ajout de limite et le banc minimal est une verification separee.
+
+REVUE DES INTERFACES ET ASSERTIONS
+CMP selectionne la soustraction et ecrit les flags sans ecrire de registre.
+Le controle conditionnel inhibe les ecritures quand la condition est fausse.
+Le Shifter traite RD2 avant le mux ALUSrc ; l'immediat et WriteData restent
+non decales. Le cas LSR avec imm5 nul produit maintenant zero.
+BL ecrit PC+4 dans R14 et calcule la cible avec PC+8 et l'immediat signe
+decale de deux bits ; la condition controle l'ecriture et le branchement.
+Les bancs catalogue comparent PC, Instr, ALUResult, WriteData, les flags
+et commandes avant le front, puis PC suivant, Flags et R0-R14 apres 1 ns.
+Le banc de projet tb_mp1 compare les 27 instructions et les deux resultats,
+verifie LT a l'instruction 12 et les controles CMP aux instructions 21-27.
+Ses 20 premieres instructions et paires attendues correspondent au Lab4
+historique conserve ; les sept suivantes sont les ajouts CMP.
+Les lignes de trace sont non vides, de 27 champs, et leur instruction
+correspond au programme a l'adresse PC attendue. Les fichiers texte sont
+copies octet pour octet dans le repertoire d'execution.
+
+CONTROLE INDEPENDANT DES ATTENDUS
+audit_expected.py recalcule les 27 traces fournies, soit 155 cycles,
+pour le sous-ensemble utilise : ADD, SUB, CMP, AND, ORR, LSL/LSR,
+LDR/STR, B/BL et conditions. Aucune ligne divergente.
+Le calcul utilise le resultat tronque sur 32 bits, carry/no-borrow,
+overflow signe, conservation des registres pour CMP, preservation de LR
+pour B, ecriture de PC+4 pour BL, et le decodage LSR imm5=0 -> 32.
+Ce controle de coherence reste limite au sous-ensemble et aux programmes
+examines : il ne constitue pas une preuve formelle de toute l'ISA ARM.
+
+SUIVI DU DEFAUT LSR #32
+La revue anterieure portait sur c5fc234a3089a7a657b98d17de99c5a19785d3d6.
+Elle observait A=80000001 -> Y=80000001 avec sh=01, shamt=00000, bit4=0.
+Le meme banc minimal est reutilise sans modification : les deux nouvelles
+versions donnent Y=00000000. Le journal ne signale plus l'assertion echouee.
+S11 ajoute aussi un controle au niveau processeur, 3 cycles, zero erreur.
+La reserve technique de la PR #6 est levee pour ces commits et ces essais.
+Les anciennes preuves sont conservees comme historique du defaut initial.
+Reference ARM DDI0406C.d, section A8.4.3, DecodeImmShift :
+https://documentation-service.arm.com/static/5f8daeb7f86e16515cdb8c4e
+
+INCIDENTS LOCAUX ET INTEGRITE
+Deux problemes de pilotage ont precede les tests : les parametres contenant
+un signe egal n'etaient pas proteges dans l'appel batch Windows ; ensuite
+des chemins Windows etaient interpretes comme des sequences d'echappement
+par Tcl. Ils sont corriges dans le lanceur local, pas dans le HDL.
+Les journaux initiaux sont conserves sous incident_initial_*.
+Les avertissements VCD natural/boolean sont conserves ; les compteurs et
+Done sont attestes par lectures XSim et journaux, pas par l'export VCD.
+Les empreintes avant/apres de chaque fichier src/sim sont identiques.
+Aucune source, assertion ni valeur attendue de l'equipe n'a ete corrigee
+ou remplacee pour ces essais. Les prefixes de chemins locaux sont
+anonymises par <ESPACE_LOCAL> dans les copies publiees des journaux.
+Aucune fusion effectuee.
+
+CAPTURES
+Les vues Haroun_LSR32_corrige et Haroun_Integration_27 sont preparees
+dans Vivado a partir des nouveaux WDB. Les captures sont demandees a Haroun,
+qui les realise lui-meme. Aucune ancienne capture n'est reutilisee comme
+preuve de ces executions. Leur ajout reste a faire apres reception.

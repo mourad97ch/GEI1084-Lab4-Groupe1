@@ -1,0 +1,19 @@
+
+****** xsim v2022.2.2 (64-bit)
+  **** SW Build 3788238 on Tue Feb 21 20:00:34 MST 2023
+  **** IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+    ** Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/integration_LSR32_MINIMAL/xsim_script.tcl
+# xsim {integration_LSR32_MINIMAL} -wdb {<ESPACE_LOCAL>/verification_haroun_integration/integration/LSR32_MINIMAL.wdb} -autoloadwcfg -tclbatch {<ESPACE_LOCAL>/verification_haroun_integration/integration/LSR32_MINIMAL.tcl}
+Time resolution is 1 ps
+source <ESPACE_LOCAL>/verification_haroun_integration/integration/LSR32_MINIMAL.tcl
+## log_wave -r /
+WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of object type or size limitations.  To see details please rerun the command with -verbose (-v).
+## run 2ns
+Note: HAROUN_LSR_IMM5_ZERO A=80000001 observed=00000000 ARM_LSR32_expected=00000000
+Time: 1 ns  Iteration: 0  Process: /tb_lsr32_review/line__8  File: <ESPACE_LOCAL>/verification_haroun_integration/integration/tb_lsr32_review.vhd
+## puts "HAROUN_MINIMAL_RESULT Y=[get_value -radix hex /tb_lsr32_review/y]"
+HAROUN_MINIMAL_RESULT Y=00000000
+## quit
+INFO: [Common 17-206] Exiting xsim at Wed Nov 25 22:59:57 2026...

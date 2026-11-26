@@ -1,0 +1,7 @@
+Vivado Simulator v2022.2.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -s integration_C2 xil_defaultlib.tb_cmp_catalog -generic_top PROGRAM_FILE=CMP_C2.hex -generic_top EXPECTED_FILE=CMP_C2.trace -generic_top TEST_ID=C2 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
