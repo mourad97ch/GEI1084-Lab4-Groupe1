@@ -1,1 +1,2 @@
-080daf3e27d49d2980a594b65e7b8defc8c05055
+BL implémentation PR #3 : 080daf3e27d49d2980a594b65e7b8defc8c05055
+Testbench tb_bl et programme BL_EQ.hex : 2bddf96 (rejeu complet effectué sur ce commit)

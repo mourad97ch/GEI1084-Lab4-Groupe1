@@ -1,14 +1,17 @@
 Mohamed Aziz Amiri — revue indépendante BL
 
-Révision testée : 080daf3e27d49d2980a594b65e7b8defc8c05055 (branche source feature/bl, PR #3).
+Implémentation BL testée : 080daf3e27d49d2980a594b65e7b8defc8c05055 (branche source feature/bl, PR #3).
+Extension du banc testée : 2bddf96 (branche aziz/bl-verification).
+Le testbench tb_bl conserve ses 8 instructions originales et exécute en parallèle un cas EQ vraie dédié.
 Branche de preuves : aziz/bl-verification, créée depuis origin/feature/bl.
 Outil : Vivado/XSim 2022.2, VHDL 2008, part xc7z007sclg225-1.
 
-Résultats observés sur le commit ci-dessus, attendus inchangés :
-- tb_bl : 8 instructions, Error_count=0, Done=TRUE; fin de vérification à 96 ns.
+Résultats observés, attendus inchangés :
+- tb_bl original : 8 instructions, Error_count=0, Done=TRUE; fin à 96 ns.
+- Cas EQ vraie dans le même tb_bl : SUBS R3,R0,#0 établit NZCV=0110; BL EQ à PC=0x04 atteint PC=0x14 et écrit LR=PC+4=0x08. Le flot revient via LR à PC=0x08; 5 étapes, errors=0, Done_EQ=TRUE (66 ns).
 - tb_bl_catalog : B1=3, B2=3, B3=10, B4=3, B5=5, B6=7, B7=3, B8=4 cycles; errors=0 pour chacun.
 - tb_mp1 : Tests=20, errors=0; contrôle LT confirmé avec NZCV=1000, CondEx=1, RegWrite=1, FlagWrite=00; fin à 215 ns dans une fenêtre de 230 ns.
 
 Points observés : BL écrit PC+4 dans R14; B4 exécute un déplacement arrière signé (PC 0x14 vers 0x08); le testbench tb_bl vérifie le retour par LR et la conservation des registres/LR pour B et une branche conditionnelle non prise. Les cas couvrent CondEx vrai pour AL et faux pour EQ; aucun cas ne vérifie explicitement une instruction BL à condition EQ vraie.
 
-Les fichiers *.hex, *.trace, Instructions.txt et ExpectedData.txt n'ont pas été modifiés. Les journaux bruts sont vivado_regression.log et vivado_regression.jou; le script de rejeu est run_regression.tcl. Aucune capture n'est incluse; l'écran tb_bl est laissé ouvert dans Vivado pour les captures de Mohamed.
+Les fichiers *.trace, Instructions.txt et ExpectedData.txt n'ont pas été modifiés. BL_EQ.hex est un nouveau programme de test, pas un fichier attendu. Les journaux bruts de ce rejeu sont vivado_regression_eq_final.log et vivado_regression_eq_final.jou; le script de rejeu est run_regression.tcl. Aucune capture n'est incluse; l'écran tb_bl est laissé ouvert dans Vivado pour les captures de Mohamed.
