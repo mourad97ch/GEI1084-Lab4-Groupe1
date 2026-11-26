@@ -1,0 +1,9 @@
+ID,Status,Observed,Journal
+C1,PASS,3 cycles; 0 errors,logs/C1.log
+C2,PASS,3 cycles; 0 errors,logs/C2.log
+C3,PASS,3 cycles; 0 errors,logs/C3.log
+C4,PASS,4 cycles; 0 errors,logs/C4.log
+C5,PASS,34 cycles; 0 errors,logs/C5.log
+C6,PASS,4 cycles; 0 errors,logs/C6.log
+C7,PASS,5 cycles; 0 errors,logs/C7.log
+LAB4_ORIGINAL_20,PASS,20 cycles; 0 errors,logs/LAB4_catalog.log
