@@ -64,7 +64,9 @@ Le périmètre vérifié du Shifter reste LSL et LSR par constante. ASR, ROR et 
 
 Pour l’appel avec lien, `arm_mp1.vhd` détecte une instruction branch-and-link avec `link_s`. Cette commande active l’écriture registre et le datapath choisit R14 comme destination; la valeur de writeback est `PCPlus4`. Le chemin PC reçoit la cible de branchement lorsque `PCSrc` est actif. Ainsi, un BL exécuté avec PC=4 place `8` dans LR, soit PC+4.
 
-Un branchement B ordinaire n’a pas le bit Link : il peut modifier le PC sans écrire LR. Pour les branches conditionnelles, `CondEx` détermine si l’effet est appliqué. Les tests vérifient le BL pris, le BL non pris, la conservation de LR pendant B, le retour via LR et la continuation après le retour. La PR #3 avait aussi été testée isolément avec huit instructions et un cas EQ vrai ajouté au même banc; la revue BL est publiée comme Approve. Sur la révision intégrée, B1–B8 rejouent les scénarios de branchement contre les traces architecturales.
+Un branchement B ordinaire n’a pas le bit Link : il peut modifier le PC sans écrire LR. Pour les branches conditionnelles, `CondEx` détermine si l’effet est appliqué. Les tests vérifient le BL pris, le BL non pris, la conservation de LR pendant B, le retour via LR et la continuation après le retour.
+
+J’ai également rejoué les résultats BL de Mourad sur la branche `feature/bl`, au commit testé `080daf3e27d49d2980a594b65e7b8defc8c05055`. `tb_bl` a exécuté ses huit instructions avec zéro erreur et `Done=TRUE`. J’ai ajouté au même banc le cas BL avec EQ vraie; il vérifie `NZCV=0110`, la prise de branche, `LR=PC+4`, le retour via LR et la reprise après le retour, également sans erreur. J’ai conservé et poussé mes propres preuves sous `preuves/aziz_bl` sur la branche [`aziz/bl-verification`](https://github.com/mourad97ch/GEI1084-Lab4-Groupe1/tree/aziz/bl-verification/preuves/aziz_bl). La revue de la [PR #3](https://github.com/mourad97ch/GEI1084-Lab4-Groupe1/pull/3#pullrequestreview-6067127024) a ensuite été publiée comme **Approve**. Ces preuves correspondent au commit BL indiqué; dans la révision intégrée, B1–B8 ont été rejoués séparément contre leurs traces architecturales.
 
 | Cas | Résultat XSim |
 |---|---|
@@ -110,6 +112,4 @@ Depuis la racine du dépôt, le script `phase4/prepare_aziz_integration.tcl` cr�
 
 Les attendus des tests fournis n’ont pas été changés pour obtenir ces résultats. La simulation valide le comportement décrit par les vecteurs et traces; aucune conclusion de synthèse, de fréquence ou de test sur FPGA n’est formulée ici.
 
-## Présentation orale courte
 
-> « Ma partie a été l’intégration et la vérification finale de CMP, du Shifter et de BL sur une branche séparée de `dev/phase4`. J’ai gardé le RTL CMP de Zack, ajouté les tests CMP corrigés qui m’ont été transmis, puis j’ai traité un défaut repéré dans le Shifter : en ARM, LSR avec `imm5=0` signifie un décalage de 32 et doit produire zéro. J’ai ajouté S11 pour le vérifier. Le catalogue donne 32 cas sans erreur, et la régression distincte des 20 instructions Lab4 passe également. Les journaux et le script de rejeu sont joints à la PR #9, qui reste en attente de revue et n’a pas été fusionnée. »
