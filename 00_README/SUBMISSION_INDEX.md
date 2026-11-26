@@ -16,8 +16,7 @@
 | Carte des preuves | `08_GRADING_EVIDENCE/Team01_GE1084_MP1_EvidenceMap.pdf` |
 | Déclaration IAg | `00_README/AI_USE_DECLARATION.md` |
 
-Git repository URL / URL du dépôt Git : https://github.com/mourad97ch/GEI1084-Lab4-Groupe1
-
+Git repository URL / URL du dépôt Git : https://github.com/mourad97ch/GEI1084-Lab4-Groupe1/tree/dev/phase4
 Final release tag/commit / Tag ou commit final : **À COMPLÉTER au gel de la remise** (nouveau tag sur la
 version finale ; le tag `mp1-team01-remise` désigne une version antérieure et ne doit pas être déplacé).
 
