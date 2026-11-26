@@ -79,7 +79,9 @@ anonymises par <ESPACE_LOCAL> dans les copies publiees des journaux.
 Aucune fusion effectuee.
 
 CAPTURES
-Les vues Haroun_LSR32_corrige et Haroun_Integration_27 sont preparees
-dans Vivado a partir des nouveaux WDB. Les captures sont demandees a Haroun,
-qui les realise lui-meme. Aucune ancienne capture n'est reutilisee comme
-preuve de ces executions. Leur ajout reste a faire apres reception.
+Capture S11 realisee et fournie par Haroun : capture_S11_haroun.png.
+Elle montre Test_number=3, Error_count=0, Done=TRUE et le resultat nul
+de LSR #32 (instruction E0803022), avec rd2_s et shifted_s visibles.
+La capture du bilan integre de 27 instructions reste a recevoir.
+Les vues sont preparees dans Vivado a partir des nouveaux WDB.
+Aucune ancienne capture n'est reutilisee pour ces executions.
