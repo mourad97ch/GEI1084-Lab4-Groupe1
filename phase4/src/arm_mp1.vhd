@@ -9,13 +9,16 @@ entity arm_mp1 is
     ALUFlags, Flags : out std_logic_vector(3 downto 0);
     FlagWrite : out std_logic_vector(1 downto 0);
     CondEx, RegWrite, MemWrite, PCSrc : out std_logic
+
   );
 end entity;
 
 architecture structural of arm_mp1 is
 component main_decoder
   port (
-Op : in std_logic_vector(1 downto 0);
+    Op : in std_logic_vector(1 downto 0);
+        --modification
+    Opcode : in std_logic_vector(3 downto 0);
     Funct5, Funct0 : in std_logic;
     Branch, MemtoReg, MemW, ALUSrc, RegW, ALUOp : out std_logic;
     ImmSrc, RegSrc : out std_logic_vector(1 downto 0)
@@ -101,6 +104,8 @@ begin
   main_unit : main_decoder
     port map (
       Op => instr_s(27 downto 26), Funct5 => instr_s(25), Funct0 => instr_s(20),
+      --modification
+      Opcode => instr_s(24 downto 21),
       Branch => branch_s, MemtoReg => memtoreg_s, MemW => memw_s, ALUSrc => alusrc_s,
       RegW => regw_s, ALUOp => aluop_s, ImmSrc => immsrc_s, RegSrc => regsrc_s
     );
