@@ -1,18 +1,20 @@
 """Modele de reference ARM monocycle (sous-ensemble MP1) pour les tests S1-S10.
 
-Genere phase4/sim/S<n>.hex et S<n>.trace au format du banc catalogue
+Genere 03_TESTBENCH/instructions/S<n>.hex et 03_TESTBENCH/expected_results/S<n>.trace au format du banc catalogue
 (meme format que les traces B1-B8) :
   PC Instr ALUResult WriteData Flags RegW MemW PCSrc FlagW CondEx
   NextPC FlagsApres R0 ... R14
 Le modele est ecrit a partir de la specification ARM (pas du VHDL) :
 il sert d'attendu independant pour la simulation Vivado.
 
-Usage : python phase4/scripts/gen_shift_tests.py
+Usage : python 03_TESTBENCH/expected_results/generators/gen_shift_tests.py
 """
 from pathlib import Path
 
 MASK = 0xFFFFFFFF
-SIM = Path(__file__).resolve().parent.parent / "sim"
+TB = Path(__file__).resolve().parents[2]          # 03_TESTBENCH
+HEX_DIR = TB / "instructions"
+TRACE_DIR = TB / "expected_results"
 
 # ---------------------------------------------------------------- encodage
 COND_AL = 0xE
@@ -164,9 +166,9 @@ TESTS = {
 def main():
     for name, prog in TESTS.items():
         rows = run(prog)
-        (SIM / f"{name}.hex").write_text(
+        (HEX_DIR / f"{name}.hex").write_text(
             "".join(f"{i:08X}\n" for i in prog), encoding="ascii", newline="\n")
-        (SIM / f"{name}.trace").write_text(
+        (TRACE_DIR / f"{name}.trace").write_text(
             "".join(" ".join(r) + "\n" for r in rows), encoding="ascii",
             newline="\n")
         print(f"{name}: {len(prog)} instructions")

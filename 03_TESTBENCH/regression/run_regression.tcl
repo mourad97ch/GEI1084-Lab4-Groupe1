@@ -1,13 +1,20 @@
-# Reproduce the Aziz integration verification in Vivado/XSim 2022.2.
-# From repository root: vivado -mode batch -source phase4/prepare_aziz_integration.tcl
+# Regression complete C1-C7, S1-S11, B1-B8, Lab 4 (R1-R7) et tb_mp1 dans Vivado/XSim 2022.2.
+# Script d'integration de M. A. Amiri (ex-phase4/prepare_aziz_integration.tcl),
+# chemins adaptes a la structure de remise.
+# Depuis la racine du depot :
+#   vivado -mode batch -source 03_TESTBENCH/regression/run_regression.tcl
+# Sorties : 04_RESULTS/REGRESSION/rejeu/results.csv et logs/<ID>.log
 set base [file dirname [file normalize [info script]]]
-set out [file normalize [file join $base .. preuves aziz_integration]]
+set root [file normalize [file join $base .. ..]]
+set out [file join $root 04_RESULTS REGRESSION rejeu]
 file mkdir [file join $out logs]
 
 create_project Aziz_Integration [file join $::env(TEMP) Aziz_Integration] -part xc7z007sclg225-1 -force
 set_property target_language VHDL [current_project]
-add_files -norecurse [glob -directory [file join $base src] *.vhd]
-add_files -fileset sim_1 -norecurse [glob -directory [file join $base sim] *]
+add_files -norecurse [glob -directory [file join $root 02_HDL final_design] *.vhd]
+add_files -fileset sim_1 -norecurse [glob -directory [file join $root 03_TESTBENCH testbench] *.vhd]
+add_files -fileset sim_1 -norecurse [glob -type f -directory [file join $root 03_TESTBENCH instructions] *.hex *.txt]
+add_files -fileset sim_1 -norecurse [glob -type f -directory [file join $root 03_TESTBENCH expected_results] *.trace *.txt]
 set_property file_type {VHDL 2008} [get_files *.vhd]
 update_compile_order -fileset sources_1
 

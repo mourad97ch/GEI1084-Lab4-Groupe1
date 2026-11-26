@@ -1,33 +1,36 @@
 ﻿TestID,Feature,Expected,Observed,Status,EvidencePath
-C1,CMP equality / Z,,,,
-C2,CMP positive subtraction,,,,
-C3,CMP negative subtraction,,,,
-C4,CMP carry/borrow-sensitive,,,,
-C5,CMP signed-overflow-sensitive,,,,
-C6,CMP no register write,,,,
-C7,CMP flags drive conditional execution,,,,
-S1,LSL #0,,,,
-S2,LSL #1,,,,
-S3,multi-bit LSL,,,,
-S4,ordinary LSR,,,,
-S5,LSR MSB=1 zero fill,,,,
-S6,shift-to-zero,,,,
-S7,AND shifted,,,,
-S8,ORR shifted,,,,
-S9,unshifted register regression,,,,
-S10,immediate-path regression,,,,
-B1,ordinary B / R14 unchanged,,,,
-B2,forward BL,,,,
-B3,PC+4 vs PC+8,,,,
-B4,backward BL,,,,
-B5,conditional BL true,,,,
-B6,conditional BL false / R14 unchanged,,,,
-B7,normal register write after BL,,,,
-B8,LR persistence,,,,
-R1,baseline arithmetic register,,,,
-R2,baseline logical register,,,,
-R3,baseline immediate,,,,
-R4,LDR,,,,
-R5,STR,,,,
-R6,baseline conditional execution,,,,
-R7,ordinary branch,,,,
+C1,CMP egalite / Z,0 erreur sur la trace complete,3 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/C1.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/C1.log
+C2,CMP soustraction positive,0 erreur sur la trace complete,3 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/C2.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/C2.log
+C3,CMP soustraction negative,0 erreur sur la trace complete,3 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/C3.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/C3.log
+C4,CMP cas sensible carry/borrow,0 erreur sur la trace complete,4 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/C4.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/C4.log
+C5,CMP cas sensible overflow signe (0x80000000 - 1),0 erreur sur la trace complete,34 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/C5.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/C5.log
+C6,CMP n ecrit aucun registre,0 erreur sur la trace complete,4 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/C6.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/C6.log
+C7,Flags CMP -> instruction conditionnelle suivante,0 erreur sur la trace complete,5 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/C7.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/C7.log
+S1,LSL #0 (identite),0 erreur sur la trace complete,2 cycles; 0 errors,PASS,04_RESULTS/SHIFT/hatem_shift/logs/S1.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/S1.log
+S2,LSL #1,0 erreur sur la trace complete,2 cycles; 0 errors,PASS,04_RESULTS/SHIFT/hatem_shift/logs/S2.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/S2.log
+S3,"LSL multibit (#4, #28)",0 erreur sur la trace complete,3 cycles; 0 errors,PASS,04_RESULTS/SHIFT/hatem_shift/logs/S3.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/S3.log
+S4,LSR ordinaire,0 erreur sur la trace complete,3 cycles; 0 errors,PASS,04_RESULTS/SHIFT/hatem_shift/logs/S4.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/S4.log
+S5,LSR avec MSB=1 : zeros a gauche,0 erreur sur la trace complete,4 cycles; 0 errors,PASS,04_RESULTS/SHIFT/hatem_shift/logs/S5.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/S5.log
+S6,Decalage produisant zero,0 erreur sur la trace complete,6 cycles; 0 errors,PASS,04_RESULTS/SHIFT/hatem_shift/logs/S6.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/S6.log
+S7,AND avec operande decale,0 erreur sur la trace complete,4 cycles; 0 errors,PASS,04_RESULTS/SHIFT/hatem_shift/logs/S7.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/S7.log
+S8,ORR avec operande decale,0 erreur sur la trace complete,4 cycles; 0 errors,PASS,04_RESULTS/SHIFT/hatem_shift/logs/S8.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/S8.log
+S9,Regression registre non decale,0 erreur sur la trace complete,6 cycles; 0 errors,PASS,04_RESULTS/SHIFT/hatem_shift/logs/S9.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/S9.log
+S10,Regression chemin immediat (+ STR WriteData non decale),0 erreur sur la trace complete,4 cycles; 0 errors,PASS,04_RESULTS/SHIFT/hatem_shift/logs/S10.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/S10.log
+S11,Cas limite ARM LSR imm5=0 = LSR #32 (supplementaire),0 erreur sur la trace complete,3 cycles; 0 errors,PASS,04_RESULTS/SHIFT/hatem_shift/logs/S11.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/S11.log
+B1,Regression B ordinaire (R14 inchange),0 erreur sur la trace complete,3 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/B1.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/B1.log
+B2,BL vers l avant,0 erreur sur la trace complete,3 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/B2.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/B2.log
+B3,Distinction PC+4 / PC+8,0 erreur sur la trace complete,10 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/B3.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/B3.log
+B4,BL vers l arriere,0 erreur sur la trace complete,3 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/B4.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/B4.log
+B5,BL conditionnel vrai,0 erreur sur la trace complete,5 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/B5.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/B5.log
+B6,BL conditionnel faux : PC+4 et R14 inchange,0 erreur sur la trace complete,7 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/B6.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/B6.log
+B7,Ecriture registre normale apres BL,0 erreur sur la trace complete,3 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/B7.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/B7.log
+B8,Persistance de LR,0 erreur sur la trace complete,4 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/B8.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/B8.log
+R1,Instruction arithmetique registre (ligne 7 du programme Lab 4),0 erreur,20 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/LAB4_catalog.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/LAB4.log
+R2,Instruction logique registre (ligne 6),0 erreur,20 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/LAB4_catalog.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/LAB4.log
+R3,Instruction immediate (ligne 2),0 erreur,20 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/LAB4_catalog.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/LAB4.log
+R4,LDR (ligne 15),0 erreur,20 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/LAB4_catalog.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/LAB4.log
+R5,STR (ligne 14),0 erreur,20 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/LAB4_catalog.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/LAB4.log
+R6,"Instruction conditionnelle non-BL, ADDLT (ligne 12)",0 erreur,20 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/LAB4_catalog.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/LAB4.log
+R7,B ordinaire (reutilise B1),0 erreur,3 cycles; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/B1.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/B1.log
+tb_mp1,Programme projet : 20 vecteurs Lab 4 + 7 CMP,Tests: 27; errors: 0,27 tests; 0 errors,PASS,04_RESULTS/REGRESSION/aziz_integration/logs/tb_mp1_27.log ; 04_RESULTS/REGRESSION/rejeu_xsim/logs/tb_mp1.log
+BASELINE_LAB4,Banc d origine du Lab 4 (02_HDL/baseline_lab4),Tests: 20; errors: 0,20 tests; 0 errors,PASS,04_RESULTS/REGRESSION/rejeu_xsim/logs/BASELINE_LAB4.log
