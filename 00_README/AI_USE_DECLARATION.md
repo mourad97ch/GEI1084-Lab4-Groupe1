@@ -6,8 +6,8 @@ Team / Équipe: Team01 (Groupe 1)
 
 Select / Cochez:
 
-- [*] No generative AI was used for Mini-project 1. / Aucune IAg n'a été utilisée pour le mini-projet 1.
-- [*] Generative AI was used only within UQTR Level 1 before production. / Une IAg a été utilisée uniquement dans la portée du niveau 1 UQTR avant la production.
+- [ ] No generative AI was used for Mini-project 1. / Aucune IAg n'a été utilisée pour le mini-projet 1.
+- [ ] Generative AI was used only within UQTR Level 1 before production. / Une IAg a été utilisée uniquement dans la portée du niveau 1 UQTR avant la production.
 
 If AI was used / Si une IAg a été utilisée:
 
