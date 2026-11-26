@@ -82,6 +82,12 @@ CAPTURES
 Capture S11 realisee et fournie par Haroun : capture_S11_haroun.png.
 Elle montre Test_number=3, Error_count=0, Done=TRUE et le resultat nul
 de LSR #32 (instruction E0803022), avec rd2_s et shifted_s visibles.
-La capture du bilan integre de 27 instructions reste a recevoir.
+Capture du bilan integre realisee et fournie par Haroun :
+capture_bilan_27_haroun.png ; Test_number=27, Error_count=0, Done=TRUE,
+attendus, resultats, RegState et R14 visibles. Le curseur est apres la fin
+du programme : PC=0000006C (108), Instr=EC000000. Les sorties peuvent
+alors differer des derniers attendus conserves sans nouvelle comparaison.
+L'axe du temps est hors cadrage de cette capture ; les instants sont
+attestes par les journaux XSim et les traces VCD conserves.
 Les vues sont preparees dans Vivado a partir des nouveaux WDB.
 Aucune ancienne capture n'est reutilisee pour ces executions.
