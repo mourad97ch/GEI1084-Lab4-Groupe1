@@ -9,4 +9,5 @@ S7,"AND avec operande decale (R3 = 0x0F, R4 = 0)",Trace architecturale complete 
 S8,"ORR avec operande decale (R3 = 0xF01, R4 = 0xF1)",Trace architecturale complete (S8.trace),4 cycles, 0 erreurs,PASS,preuves/hatem_shift/logs/S8.log
 S9,"Regression registre non decale (SUB/ADD/AND/ORR)",Trace architecturale complete (S9.trace),6 cycles, 0 erreurs,PASS,preuves/hatem_shift/logs/S9.log
 S10,"Regression chemin immediat + STR WriteData non decale (R1 = 0xA5)",Trace architecturale complete (S10.trace),4 cycles, 0 erreurs,PASS,preuves/hatem_shift/logs/S10.log
-REG,"Regression Lab 4 tb_mp1",20 tests sans erreur,20 tests, 0 erreurs,PASS,preuves/hatem_shift/logs/tb_mp1.log
+S11,"Cas limite ARM : LSR imm5 = 0 = LSR #32 (R3 = 0)",Trace architecturale complete (S11.trace),3 cycles, 0 erreurs,PASS,preuves/hatem_shift/logs/S11.log
+REG,"Regression Lab 4 + CMP tb_mp1",Tous les tests sans erreur,27 tests, 0 erreurs,PASS,preuves/hatem_shift/logs/tb_mp1.log

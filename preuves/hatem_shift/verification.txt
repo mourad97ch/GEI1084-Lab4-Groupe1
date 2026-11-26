@@ -34,8 +34,13 @@ Execution 1 - Vivado de Hatem, commit c5fc234 (Shift seul, avant CMP/BL) :
   (ADD R9,R0,R8,LSR #1), WriteData FFFFFFFF (RD2 non decale),
   ALUResult 7FFFFFFF (zeros a gauche, pas d'ASR), Error_count 0, Done TRUE.
 
-Execution 2 - version integree (CMP + Shift + BL, correctif LSR #32) :
-  A COMPLETER apres le lancement de Hatem.
+Execution 2 - Vivado de Hatem, version integree (base fcc3714 : CMP + Shift + BL,
+correctif LSR #32 647cab6, script avec S11) :
+  S1 a S11 : PASS, 0 erreur chacun. tb_mp1 : 27 tests, 0 erreur (Lab 4 + CMP C1-C7, LT OK).
+  Journal : journal_vivado_hatem.txt (0 ERROR). Fichiers : logs/, Resultats_S1_S10.csv
+  (les journaux de l'execution 1 restent dans l'historique Git, commit 08080b4).
+  Capture : capture_shift_hatem_S11.png = S11 : Instr E0803022 (ADD R3,R0,R2,LSR #32),
+  WriteData FFFFFFFF, ALUResult 00000000, Error_count 0, Done TRUE.
 
 Revue independante : Haroun (PR #6, commit c5fc234) : S1-S10 PASS, reserve LSR #32
   -> corrigee au commit 647cab6, a reconfirmer par Haroun sur l'execution 2.
