@@ -37,7 +37,13 @@ begin
                 -- LSR logique : unsigned => des zeros entrent a gauche
                 -- (sur signed, ce serait un ASR qui recopie le bit 31).
                 when "01" =>
-                    Y <= std_logic_vector(shift_right(unsigned(A), n));
+                    -- ARM encode LSR #32 with imm5 = 0.  A zero shift
+                    -- amount here is therefore 32, not the identity.
+                    if n = 0 then
+                        Y <= (others => '0');
+                    else
+                        Y <= std_logic_vector(shift_right(unsigned(A), n));
+                    end if;
                 when others =>
                     null;
             end case;

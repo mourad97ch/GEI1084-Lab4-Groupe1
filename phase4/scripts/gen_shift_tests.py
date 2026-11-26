@@ -43,7 +43,7 @@ def shift(value, sh, n):
     if sh == 0b00:
         return (value << n) & MASK
     if sh == 0b01:
-        return value >> n                    # LSR logique : zeros a gauche
+        return 0 if n == 0 else value >> n   # ARM LSR #32 when imm5 = 0
     return value                             # hors portee
 
 
@@ -104,7 +104,7 @@ def run(program):
     return rows
 
 
-# ---------------------------------------------------------- tests S1-S10
+# ---------------------------------------------------------- tests S1-S11
 TESTS = {
     # S1 : LSL #0 = identite
     "S1": [dp_imm("ADD", 1, 0, 0xA5),
@@ -154,6 +154,10 @@ TESTS = {
             dp_imm("SUB", 2, 1, 0xE0),                     # R2 = 0xFFFFFFC5
             mem(False, 1, 0, 0x8A),                        # STR : WriteData = R1 non decale
             mem(True, 3, 0, 0x8A)],                        # LDR : R3 = 0xA5
+    # Boundary rule from ARM: LSR with imm5 = 0 encodes a shift by 32.
+    "S11": [dp_imm("ADD", 1, 0, 1),
+            dp_reg("SUB", 2, 0, 1),                        # R2 = 0xFFFFFFFF
+            dp_reg("ADD", 3, 0, 2, "LSR", 0)],             # R3 = 0
 }
 
 
