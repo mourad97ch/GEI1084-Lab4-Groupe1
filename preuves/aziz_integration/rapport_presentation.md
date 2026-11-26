@@ -112,4 +112,8 @@ Depuis la racine du dépôt, le script `phase4/prepare_aziz_integration.tcl` cr�
 
 Les attendus des tests fournis n’ont pas été changés pour obtenir ces résultats. La simulation valide le comportement décrit par les vecteurs et traces; aucune conclusion de synthèse, de fréquence ou de test sur FPGA n’est formulée ici.
 
+## Présentation orale courte
+
+> « Ma partie a été l’intégration et la vérification finale de CMP, du Shifter et de BL sur une branche séparée de `dev/phase4`. J’ai conservé le RTL CMP de Zack et ajouté les tests CMP corrigés transmis pour cette intégration. Pour BL, j’ai rejoué les huit instructions de `tb_bl`, puis le cas EQ vraie dans le même banc; les résultats et mes preuves ont été publiés sur GitHub et ma revue de la PR #3 a été approuvée. J’ai aussi corrigé le cas ARM où LSR avec `imm5=0` signifie un décalage de 32 et doit produire zéro, puis j’ai ajouté S11 pour le vérifier. Le catalogue donne 32 cas sans erreur, et la régression distincte des 20 instructions Lab4 passe aussi. Le rapport, les journaux et le script de rejeu sont joints à la PR #9, qui attend une revue et n’a pas été fusionnée. »
+
 
