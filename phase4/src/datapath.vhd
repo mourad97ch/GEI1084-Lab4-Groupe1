@@ -60,6 +60,16 @@ architecture structural of datapath is
         );
     end component;
 
+    component shifter
+        port (
+            A     : in  std_logic_vector(31 downto 0);
+            shamt : in  std_logic_vector(4 downto 0);
+            sh    : in  std_logic_vector(1 downto 0);
+            bit4  : in  std_logic;
+            Y     : out std_logic_vector(31 downto 0)
+        );
+    end component;
+
     component data_memory
         port (
             CLK      : in  std_logic;
@@ -74,6 +84,7 @@ architecture structural of datapath is
 
     signal rd1_s, rd2_s   : std_logic_vector(31 downto 0);
     signal extimm_s       : std_logic_vector(31 downto 0);
+    signal shifted_s      : std_logic_vector(31 downto 0);
     signal srcb_s         : std_logic_vector(31 downto 0);
     signal alu_result_s   : std_logic_vector(31 downto 0);
     signal read_data_s    : std_logic_vector(31 downto 0);
@@ -109,8 +120,18 @@ begin
             ExtImm => extimm_s
         );
 
-    -- Deuxieme operande : registre ou constante.
-    srcb_s <= rd2_s when ALUSrc = '0'
+    -- Shift : seul l'operande registre (RD2) est decale.
+    shifter_unit : shifter
+        port map (
+            A     => rd2_s,
+            shamt => Instr(11 downto 7),
+            sh    => Instr(6 downto 5),
+            bit4  => Instr(4),
+            Y     => shifted_s
+        );
+
+    -- Deuxieme operande : registre decale ou constante (non decalee).
+    srcb_s <= shifted_s when ALUSrc = '0'
               else extimm_s;
 
     alu_unit : alu32
