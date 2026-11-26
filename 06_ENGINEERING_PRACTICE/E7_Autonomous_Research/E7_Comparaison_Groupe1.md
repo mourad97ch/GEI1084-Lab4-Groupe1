@@ -14,18 +14,25 @@ La fiche d’Haroun documente le défaut observé avant correction. Après inté
 
 ## Matrice à remplir ensemble
 
-Noter de 1 à 5, avec 5 pour le résultat le plus favorable. Calculer la moyenne pondérée sur 5.
+| Critère | Poids | Mourad — BL | Abdoulrazack — CMP | Hatem — Shifter | Haroun — Diagnostic | Aziz — Régression |
+|---|---:|---:|---:|---:|---:|---:|
+| Pertinence | 20 % | 5 | 5 | 5 | 5 | 5 |
+| Bénéfice attendu | 20 % | 4 | 4 | 4 | 4 | 5 |
+| Faisabilité | 20 % | 5 | 5 | 5 | 5 | 5 |
+| Qualité des preuves | 15 % | 5 | 4 | 5 | 5 | 5 |
+| Complexité d’intégration | 10 % | 5 | 5 | 4 | 5 | 4 |
+| Coût et risque | 10 % | 5 | 5 | 5 | 5 | 5 |
+| Extensibilité | 5 % | 4 | 4 | 4 | 3 | 5 |
+| **Total pondéré sur 5** | **100 %** | **4,75** | **4,60** | **4,65** | **4,70** | **4,90** |
 
-| Critère | Poids | Mourad | Abdoulrazack | Hatem | Haroun | Aziz |
-|---|---:|---|---|---|---|---|
-| Pertinence | 20 % | | | | | |
-| Bénéfice attendu | 20 % | | | | | |
-| Faisabilité | 20 % | | | | | |
-| Qualité des preuves | 15 % | | | | | |
-| Complexité d’intégration | 10 % | | | | | |
-| Coût et risque | 10 % | | | | | |
-| Extensibilité | 5 % | | | | | |
-| Total pondéré | 100 % | | | | | |
+Une note de 5 en complexité ou en coût et risque correspond à un effort ou à un risque faible. Le total est la somme des notes multipliées par leurs poids. Pour P4, le calcul donne `5 × 90 % + 4 × 10 % = 4,90`.
 
-Consigner la date, l’idée retenue, les critères qui ont départagé les pistes, les responsabilités et la mesure de réussite. Reporter ensuite le choix dans le rapport et la présentation.
+**Date de la décision** — [Inscrire la date réelle de validation par le groupe.]
 
+**Idée retenue** — P4, la régression reproductible par commit, proposée par Mohamed Aziz Amiri.
+
+**Justification** — Le bénéfice et l’extensibilité départagent les pistes. P4 relie chaque cas du catalogue à la version exacte du processeur, à son résultat et à son journal XSim. Elle couvre CMP, Shifter, BL et la régression du Lab4. Les autres pistes renforcent des contrôles précis. Le score de P4 en complexité tient compte du script, des fichiers de test et de la configuration Vivado à maintenir.
+
+**Responsabilités proposées** — Aziz maintient le script de rejeu et le tableau des résultats. Haroun vérifie que chaque ID renvoie à la bonne preuve. Mourad reporte le choix et le bilan dans le rapport et la présentation.
+
+**Mesure de réussite** — À partir d’un commit identifié, rejouer la suite et obtenir 32 cas du catalogue traçables et réussis, avec zéro erreur sur les 20 instructions du Lab4. Ce résultat a été observé en simulation Vivado/XSim sur `7ab6fb8`.
