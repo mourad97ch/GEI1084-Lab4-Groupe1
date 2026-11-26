@@ -1,0 +1,16 @@
+﻿Criterion,Required evidence,Report location,Repository/file location
+T1.1,CMP architecture + HDL,§3,"05_ARCHITECTURE/CMP/fig2_cmp.png ; 02_HDL/final_design/alu_decoder.vhd, main_decoder.vhd, arm_mp1.vhd"
+T1.2,Shift architecture + HDL,§4,"05_ARCHITECTURE/SHIFT/fig3_shift.png ; 02_HDL/final_design/shifter.vhd, datapath.vhd"
+T1.3,BL architecture + HDL,§5,"05_ARCHITECTURE/BL/fig4_bl.png, fig4b_bl_controle.png ; 02_HDL/final_design/arm_mp1.vhd, datapath.vhd, extend.vhd"
+T1.4,Integrated architecture,§6 (tableau d'impact),05_ARCHITECTURE/final_integrated/ ; 02_HDL/final_design/ (top mp1_system)
+T2.1,C1-C7,"§7, annexe A",03_TESTBENCH/expected_results/CMP_C*.trace ; 04_RESULTS/CMP/README.md ; 04_RESULTS/REGRESSION/aziz_integration/logs/C*.log
+T2.2,S1-S10,"§7, annexe A","03_TESTBENCH/expected_results/S*.trace ; 04_RESULTS/SHIFT/hatem_shift/ (logs, captures S5/S11)"
+T2.3,B1-B8,"§7, annexe A",03_TESTBENCH/expected_results/B*.trace ; 04_RESULTS/BL/mourad_bl/ ; 04_RESULTS/REGRESSION/aziz_integration/logs/B*.log
+T2.4,R1-R7 + debug,§7 (diagnostic LSR #32),04_RESULTS/REGRESSION/README.md ; 04_RESULTS/DEBUG_CASE/README.md ; 03_TESTBENCH/regression/RegressionSummary.csv
+E1,Communication/reproducibility,§8,"00_README/README.md, PROJECT_SCOPE.md, SUBMISSION_INDEX.md ; 03_TESTBENCH/regression/run_regression.tcl, run_regression_xsim.ps1"
+E2,Contribution/integration,§9.1,06_ENGINEERING_PRACTICE/E2_Team_Contribution/E2_Team_Contribution.md ; PR #1 à #12
+E3,Released defect,§9.2,06_ENGINEERING_PRACTICE/E3_Released_Defect/ (E3_Conditional_BL_Defect_Response.pdf À PRODUIRE)
+E4,Provenance/license,§9.3,06_ENGINEERING_PRACTICE/E4_Provenance_License/THIRD_PARTY_AND_PROVENANCE.md ; 00_README/AI_USE_DECLARATION.md
+E5,FPGA risk,§9.4,06_ENGINEERING_PRACTICE/E5_FPGA_Risk/ (E5_FPGA_Configuration_Risk.pdf À PRODUIRE)
+E6,Economics,§9.5,06_ENGINEERING_PRACTICE/E6_Engineering_Economics/ (E6_FPGA_Product_Economics.pdf À PRODUIRE)
+E7,Autonomous research,§9.6,06_ENGINEERING_PRACTICE/E7_Autonomous_Research/E7_Student01..05_Proposal.pdf (matrice et développement À PRODUIRE)
