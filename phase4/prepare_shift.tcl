@@ -1,4 +1,4 @@
-# Shift (S1-S10) + regression tb_mp1 dans Vivado/XSim 2022.2.
+# Shift (S1-S10, S11 = LSR #32) + regression tb_mp1 dans Vivado/XSim 2022.2.
 # Usage (console Tcl de Vivado ou en batch) :
 #   vivado -mode batch -source phase4/prepare_shift.tcl
 # Chaque journal XSim est copie dans preuves/hatem_shift/logs/ et un
@@ -41,6 +41,7 @@ set purpose {
     S8  "ORR avec operande decale (R3 = 0xF01, R4 = 0xF1)"
     S9  "Regression registre non decale (SUB/ADD/AND/ORR)"
     S10 "Regression chemin immediat + STR WriteData non decale (R1 = 0xA5)"
+    S11 "Cas limite ARM : LSR imm5 = 0 = LSR #32 (R3 = 0)"
 }
 
 set csv [open [file join $out Resultats_S1_S10.csv] w]
@@ -60,11 +61,11 @@ foreach {id desc} $purpose {
     puts "=== $id : $status ($obs)"
 }
 
-# Regression Lab 4 (20 instructions + controle LT) avec le shifter en place.
-set txt [run_one tb_mp1 {} 230ns $simlog [file join $out logs tb_mp1.log]]
+# Regression tb_mp1 (Lab 4 + CMP, controle LT) avec le shifter en place.
+set txt [run_one tb_mp1 {} 310ns $simlog [file join $out logs tb_mp1.log]]
 set status FAIL
 if {[regexp {Tests: (\d+); errors: (\d+)} $txt -> n err] && $err == 0} { set status PASS }
-puts $csv "REG,\"Regression Lab 4 tb_mp1\",20 tests sans erreur,[expr {[info exists n] ? "$n tests, $err erreurs" : "no result"}],$status,preuves/hatem_shift/logs/tb_mp1.log"
+puts $csv "REG,\"Regression Lab 4 + CMP tb_mp1\",Tous les tests sans erreur,[expr {[info exists n] ? "$n tests, $err erreurs" : "no result"}],$status,preuves/hatem_shift/logs/tb_mp1.log"
 puts "=== tb_mp1 : $status"
 close $csv
 close_project
