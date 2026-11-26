@@ -1,0 +1,12 @@
+
+****** xsim v2022.2.2 (64-bit)
+  **** SW Build 3788238 on Tue Feb 21 20:00:34 MST 2023
+  **** IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+    ** Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/integration_C1/xsim_script.tcl
+# xsim {integration_C1} -wdb {<ESPACE_LOCAL>\verification_haroun_integration\integration\C1.wdb} -autoloadwcfg -tclbatch {<ESPACE_LOCAL>\verification_haroun_integration\integration\C1.tcl}
+Time resolution is 1 ps
+source {C:UserszzabDocumentsChatGPTDevoir_Lab4erification_haroun_integrationintegrationC1.tcl}
+couldn't read file "C:UserszzabDocumentsChatGPTDevoir_Lab4erification_haroun_integrationintegrationC1.tcl": no such file or directory
+xsim% INFO: [Common 17-206] Exiting xsim at Wed Nov 25 22:53:26 2026...

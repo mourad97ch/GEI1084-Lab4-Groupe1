@@ -1,0 +1,99 @@
+from pathlib import Path
+import subprocess,json,hashlib,csv,re,shutil,sys
+ROOT=Path(__file__).resolve().parent.parent
+WORK=Path(__file__).resolve().parent
+BIN=Path(r'C:\Xilinx\Vivado\2022.2\bin')
+REPO=ROOT/'GEI1084-Haroun-Integration'
+PROOF=REPO/'preuves'/'haroun_integration'
+PROOF.mkdir(parents=True,exist_ok=True)
+def git(repo,*args):return subprocess.check_output(['git','-C',str(repo),*args],text=True).strip()
+def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def redact(s):return s.replace(str(ROOT),'<ESPACE_LOCAL>').replace(ROOT.as_posix(),'<ESPACE_LOCAL>')
+def tool(name,args,cwd,log):
+    argv=[str(BIN/(name+'.bat')),*[a.replace('\\','/') for a in args]]
+    command=' '.join('"'+a+'"' if '=' in a and '"' not in a else subprocess.list2cmdline([a]) for a in argv)
+    result=subprocess.run(command,cwd=cwd,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,errors='replace')
+    log.write_text(redact(result.stdout),encoding='utf-8')
+    if result.returncode:raise RuntimeError(f'{name} failed: {log}')
+    return result.stdout
+rows=[];manifest=[];audits=[]
+for group,repo in [('integration',REPO),('shift_corrected',ROOT/'GEI1084-Haroun-Shift-Corrected')]:
+    work=WORK/group;work.mkdir(exist_ok=True)
+    out=PROOF/group;out.mkdir(exist_ok=True)
+    src=sorted((repo/'phase4'/'src').glob('*.vhd'))
+    sim=repo/'phase4'/'sim'
+    files=src+sorted(sim.glob('*'))
+    before={str(p.relative_to(repo)):digest(p) for p in files if p.is_file()}
+    manifest.append({'group':group,'commit':git(repo,'rev-parse','HEAD'),'before':before})
+    for p in sim.iterdir():
+        if p.suffix.lower() in ('.hex','.trace','.txt'):shutil.copyfile(p,work/p.name)
+    boundary=ROOT/'verification_haroun_shift'/'boundary_lsr32.vhd'
+    shutil.copyfile(boundary,work/'tb_lsr32_review.vhd')
+    tests=[]
+    if group=='integration':
+        for k in range(1,8):tests.append((f'C{k}','tb_cmp_catalog',f'CMP_C{k}',450))
+    for k in range(1,12):tests.append((f'S{k}','tb_shift_catalog',f'S{k}',300))
+    if group=='integration':
+        for k in range(1,9):tests.append((f'B{k}','tb_bl_catalog',f'B{k}',300))
+        tests.append(('LAB4_ORIGINAL_20','tb_cmp_catalog','CMP_LAB4',250))
+    tests.append(('REG27','tb_mp1',None,310))
+    tests.append(('LSR32_MINIMAL','tb_lsr32_review',None,2))
+    # Review all catalog trace rows without generating or replacing expected values.
+    for name,top,prefix,ns in tests:
+        if prefix:
+            program=[int(x,16) for x in (sim/(prefix+'.hex')).read_text().split()]
+            trace=[r.split() for r in (sim/(prefix+'.trace')).read_text().splitlines() if r.strip()]
+            assert trace and all(len(r)==27 for r in trace),(group,name,'trace schema')
+            assert all(int(r[0],16)%4==0 and int(r[0],16)//4<len(program) and program[int(r[0],16)//4]==int(r[1],16) for r in trace),(group,name,'instruction mismatch')
+            audits.append({'group':group,'test':name,'trace_rows':len(trace),'program_fetches_match':True})
+    instr=[int(x,2) for x in (sim/'Instructions.txt').read_text().split()]
+    prog=[int(x,16) for x in (sim/'Program.hex').read_text().split()]
+    assert instr==prog and len(prog)==27,(group,'27 program words')
+    baseline=ROOT/'GEI1084-Haroun-Phase4'/'sim'
+    assert (sim/'Instructions.txt').read_text().splitlines()[:20]==(baseline/'Instructions.txt').read_text().splitlines()
+    assert (sim/'ExpectedData.txt').read_text().splitlines()[:20]==(baseline/'ExpectedData.txt').read_text().splitlines()
+    benches=sorted(sim.glob('*.vhd'))
+    project=work/'sources.prj'
+    project.write_text('\n'.join(f'vhdl2008 xil_defaultlib "{p.as_posix()}"' for p in src+benches+[work/'tb_lsr32_review.vhd'])+'\n',encoding='utf-8')
+    tool('xvhdl',['--incr','--relax','-prj',str(project)],work,out/'compile.log')
+    print(group,'compiled',len(src),'design sources',flush=True)
+    for name,top,prefix,ns in tests:
+        expected=len((sim/(prefix+'.trace')).read_text().splitlines()) if prefix else (27 if top=='tb_mp1' else 1)
+        snap=group+'_'+name
+        args=['--incr','--debug','typical','--relax','--mt','2','-L','xil_defaultlib','-s',snap,'xil_defaultlib.'+top]
+        if prefix:
+            for k,v in [('PROGRAM_FILE',prefix+'.hex'),('EXPECTED_FILE',prefix+'.trace'),('TEST_ID',name)]:args+=['-generic_top',k+'='+v]
+        tool('xelab',args,work,out/(name+'_elaborate.log'))
+        tcl=work/(name+'.tcl')
+        if top=='tb_lsr32_review':
+            script=f'log_wave -r /\nrun 2ns\nputs "HAROUN_MINIMAL_RESULT Y=[get_value -radix hex /{top}/y]"\nquit\n'
+        else:
+            script=f'''log_wave -r /
+open_vcd {{{(out/(name+'.vcd')).as_posix()}}}
+log_vcd /{top}/*
+run {ns}ns
+close_vcd
+puts "HAROUN_RESULT Test_number=[get_value /{top}/Test_number] Error_count=[get_value /{top}/Error_count] Done=[get_value /{top}/Done]"
+puts "HAROUN_FINAL PC=[get_value -radix hex /{top}/PC] RegState=[get_value -radix hex /{top}/RegState]"
+quit
+'''
+        tcl.write_text(script,encoding='utf-8')
+        output=tool('xsim',[snap,'-tclbatch',str(tcl),'-wdb',str(work/(name+'.wdb')),'-log',str(work/(name+'_raw.log'))],work,out/(name+'.log'))
+        if top=='tb_lsr32_review':
+            m=re.search(r'HAROUN_MINIMAL_RESULT Y=([0-9a-fA-F]+)',output)
+            success=bool(m and int(m[1],16)==0)
+            row={'Group':group,'Test':name,'Expected_cycles':1,'Observed_cycles':1,'Error_count':0 if success else 1,'Done':'N/A','Status':'PASS' if success else 'FAIL'}
+        else:
+            m=re.search(r'HAROUN_RESULT Test_number=(\d+) Error_count=(\d+) Done=(\w+)',output)
+            success=bool(m and int(m[1])==expected and int(m[2])==0 and m[3].upper()=='TRUE')
+            row={'Group':group,'Test':name,'Expected_cycles':expected,'Observed_cycles':int(m[1]) if m else -1,'Error_count':int(m[2]) if m else -1,'Done':m[3] if m else 'MISSING','Status':'PASS' if success else 'FAIL'}
+        rows.append(row)
+        with (PROOF/'resultats.csv').open('w',newline='',encoding='utf-8') as f:
+            writer=csv.DictWriter(f,fieldnames=list(row));writer.writeheader();writer.writerows(rows)
+        print(group,name,row['Status'],row['Observed_cycles'],'cycles',row['Error_count'],'errors',flush=True)
+    after={str(p.relative_to(repo)):digest(p) for p in files if p.is_file()}
+    assert before==after,(group,'source files changed')
+    manifest[-1]['unchanged']=True
+(PROOF/'empreintes_sources.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
+(PROOF/'audit_programmes.json').write_text(json.dumps(audits,indent=2),encoding='utf-8')
+print('ALL_RUNS_COMPLETE',len(rows),'runs; failed=',sum(r['Status']!='PASS' for r in rows),flush=True)

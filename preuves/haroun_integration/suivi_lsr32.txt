@@ -1,0 +1,3 @@
+Defaut ancien conserve dans PR #6 ; correctif verifie par le meme banc minimal et S11.
+Nouveau resultat : A=80000001, sh=01, shamt=00000, bit4=0 -> Y=00000000 apres 1 ns.
+Voir integration/LSR32_MINIMAL.log et shift_corrected/LSR32_MINIMAL.log.
