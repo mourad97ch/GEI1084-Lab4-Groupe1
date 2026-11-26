@@ -1,0 +1,1120 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Nov 25 22:31:43 2026
+# Process ID: 36156
+# Current directory: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1
+# Command line: vivado.exe -mode batch -source phase4/prepare_shift.tcl -log preuves/hatem_shift/journal_vivado_hatem.txt -nojournal
+# Log file: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/preuves/hatem_shift/journal_vivado_hatem.txt
+# Journal file: 
+# Running On: LAPTOP-PMKJSV01, OS: Windows, CPU Frequency: 2918 MHz, CPU Physical cores: 10, Host memory: 16852 MB
+#-----------------------------------------------------------
+source phase4/prepare_shift.tcl
+# set base [file dirname [file normalize [info script]]]
+# set out  [file normalize [file join $base .. preuves hatem_shift]]
+# file mkdir [file join $out logs]
+# create_project MP1_Shift [file join $base vivado_shift] -part xc7z007sclg225-1 -force
+create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 389.102 ; gain = 65.504
+# set_property target_language VHDL [current_project]
+# add_files -norecurse [glob -directory [file join $base src] *.vhd]
+# add_files -fileset sim_1 -norecurse [glob -directory [file join $base sim] *]
+# set_property file_type {VHDL 2008} [get_files *.vhd]
+# set_property top mp1_system [get_filesets sources_1]
+# update_compile_order -fileset sources_1
+# set simlog [file join $base vivado_shift MP1_Shift.sim sim_1 behav xsim simulate.log]
+# proc run_one {top generics runtime simlog dest} {
+#     set_property top $top [get_filesets sim_1]
+#     set_property generic $generics [get_filesets sim_1]
+#     set_property xsim.simulate.runtime $runtime [get_filesets sim_1]
+#     update_compile_order -fileset sim_1
+#     launch_simulation
+#     close_sim
+#     file copy -force $simlog $dest
+#     set f [open $dest r]; set txt [read $f]; close $f
+#     return $txt
+# }
+# set purpose {
+#     S1  "LSL #0 : identite (R2 = 0xA5)"
+#     S2  "LSL #1 (R4 = 6)"
+#     S3  "LSL multi-bits #4 et #28 (R5 = 0x30, R6 = 0x30000000)"
+#     S4  "LSR ordinaire #1 et #5 (R7 = 0x10, R8 = 1)"
+#     S5  "LSR avec MSB = 1 : zeros a gauche (R9 = 0x7FFFFFFF, R11 = 1)"
+#     S6  "Decalage jusqu'a zero (0x80000000 LSL #1 = 0, 1 LSR #1 = 0)"
+#     S7  "AND avec operande decale (R3 = 0x0F, R4 = 0)"
+#     S8  "ORR avec operande decale (R3 = 0xF01, R4 = 0xF1)"
+#     S9  "Regression registre non decale (SUB/ADD/AND/ORR)"
+#     S10 "Regression chemin immediat + STR WriteData non decale (R1 = 0xA5)"
+# }
+# set csv [open [file join $out Resultats_S1_S10.csv] w]
+# puts $csv "ID,Function,Expected,Observed,Status,EvidencePath"
+# foreach {id desc} $purpose {
+#     set log [file join $out logs $id.log]
+#     set txt [run_one tb_shift_catalog \
+#         "PROGRAM_FILE=$id.hex EXPECTED_FILE=$id.trace TEST_ID=$id" \
+#         300ns $simlog $log]
+#     set obs "no result"
+#     set status FAIL
+#     if {[regexp "$id cycles=(\\d+) errors=(\\d+)" $txt -> cyc err]} {
+#         set obs "$cyc cycles, $err erreurs"
+#         if {$err == 0} { set status PASS }
+#     }
+#     puts $csv "$id,\"$desc\",Trace architecturale complete ($id.trace),$obs,$status,preuves/hatem_shift/logs/$id.log"
+#     puts "=== $id : $status ($obs)"
+# }
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_shift_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_shift_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Program.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.trace'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_shift_catalog_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/adder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'adder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/alu32.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu32'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/alu_arithmetic.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu_arithmetic'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/alu_decoder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu_decoder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/alu_flags.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu_flags'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/alu_select.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu_select'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/arm_mp1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'arm_mp1'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/condcheck.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'condcheck'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/condlogic.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'condlogic'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/data_memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'data_memory'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/datapath.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'datapath'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/extend.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'extend'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/instruction_rom.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'instruction_rom'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/main_decoder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main_decoder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/pc_logic.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'pc_logic'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/reg_enable.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'reg_enable'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/register_file.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'register_file'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/shifter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'shifter'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_shift_catalog.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tb_shift_catalog'
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=S1.hex" -generic_top "EXPECTED_FILE=S1.trace" -generic_top "TEST_ID=S1" -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=S1.hex -generic_top EXPECTED_FILE=S1.trace -generic_top TEST_ID=S1 -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="S...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture combinational of entity xil_defaultlib.shifter [shifter_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_shift_catalog
+Built simulation snapshot tb_shift_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_shift_catalog_behav -key {Behavioral:sim_1:Functional:tb_shift_catalog} -tclbatch {tb_shift_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_shift_catalog.tcl
+## current_wave_config
+Note: S1 cycles=2 errors=0
+Time: 36 ns  Iteration: 0  Process: /tb_shift_catalog/stimulus  File: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_shift_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_shift_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 300ns
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:10 . Memory (MB): peak = 430.066 ; gain = 40.895
+INFO: [Simtcl 6-16] Simulation closed
+=== S1 : PASS (2 cycles, 0 erreurs)
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_shift_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_shift_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Program.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.trace'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_shift_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=S2.hex" -generic_top "EXPECTED_FILE=S2.trace" -generic_top "TEST_ID=S2" -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=S2.hex -generic_top EXPECTED_FILE=S2.trace -generic_top TEST_ID=S2 -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="S...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture combinational of entity xil_defaultlib.shifter [shifter_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_shift_catalog
+Built simulation snapshot tb_shift_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_shift_catalog_behav -key {Behavioral:sim_1:Functional:tb_shift_catalog} -tclbatch {tb_shift_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_shift_catalog.tcl
+## current_wave_config
+Note: S2 cycles=2 errors=0
+Time: 36 ns  Iteration: 0  Process: /tb_shift_catalog/stimulus  File: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_shift_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_shift_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 300ns
+INFO: [Simtcl 6-16] Simulation closed
+=== S2 : PASS (2 cycles, 0 erreurs)
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_shift_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_shift_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Program.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.trace'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_shift_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=S3.hex" -generic_top "EXPECTED_FILE=S3.trace" -generic_top "TEST_ID=S3" -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=S3.hex -generic_top EXPECTED_FILE=S3.trace -generic_top TEST_ID=S3 -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="S...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture combinational of entity xil_defaultlib.shifter [shifter_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_shift_catalog
+Built simulation snapshot tb_shift_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_shift_catalog_behav -key {Behavioral:sim_1:Functional:tb_shift_catalog} -tclbatch {tb_shift_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_shift_catalog.tcl
+## current_wave_config
+Note: S3 cycles=3 errors=0
+Time: 46 ns  Iteration: 0  Process: /tb_shift_catalog/stimulus  File: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_shift_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_shift_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 300ns
+INFO: [Simtcl 6-16] Simulation closed
+=== S3 : PASS (3 cycles, 0 erreurs)
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_shift_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_shift_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Program.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.trace'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_shift_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=S4.hex" -generic_top "EXPECTED_FILE=S4.trace" -generic_top "TEST_ID=S4" -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=S4.hex -generic_top EXPECTED_FILE=S4.trace -generic_top TEST_ID=S4 -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="S...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture combinational of entity xil_defaultlib.shifter [shifter_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_shift_catalog
+Built simulation snapshot tb_shift_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_shift_catalog_behav -key {Behavioral:sim_1:Functional:tb_shift_catalog} -tclbatch {tb_shift_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_shift_catalog.tcl
+## current_wave_config
+Note: S4 cycles=3 errors=0
+Time: 46 ns  Iteration: 0  Process: /tb_shift_catalog/stimulus  File: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_shift_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_shift_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 300ns
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 430.066 ; gain = 0.000
+INFO: [Simtcl 6-16] Simulation closed
+=== S4 : PASS (3 cycles, 0 erreurs)
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_shift_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_shift_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Program.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.trace'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_shift_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=S5.hex" -generic_top "EXPECTED_FILE=S5.trace" -generic_top "TEST_ID=S5" -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=S5.hex -generic_top EXPECTED_FILE=S5.trace -generic_top TEST_ID=S5 -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="S...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture combinational of entity xil_defaultlib.shifter [shifter_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_shift_catalog
+Built simulation snapshot tb_shift_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_shift_catalog_behav -key {Behavioral:sim_1:Functional:tb_shift_catalog} -tclbatch {tb_shift_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_shift_catalog.tcl
+## current_wave_config
+Note: S5 cycles=4 errors=0
+Time: 56 ns  Iteration: 0  Process: /tb_shift_catalog/stimulus  File: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_shift_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_shift_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 300ns
+INFO: [Simtcl 6-16] Simulation closed
+=== S5 : PASS (4 cycles, 0 erreurs)
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_shift_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_shift_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Program.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.trace'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_shift_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=S6.hex" -generic_top "EXPECTED_FILE=S6.trace" -generic_top "TEST_ID=S6" -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=S6.hex -generic_top EXPECTED_FILE=S6.trace -generic_top TEST_ID=S6 -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="S...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture combinational of entity xil_defaultlib.shifter [shifter_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_shift_catalog
+Built simulation snapshot tb_shift_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_shift_catalog_behav -key {Behavioral:sim_1:Functional:tb_shift_catalog} -tclbatch {tb_shift_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_shift_catalog.tcl
+## current_wave_config
+Note: S6 cycles=6 errors=0
+Time: 76 ns  Iteration: 0  Process: /tb_shift_catalog/stimulus  File: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_shift_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_shift_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 300ns
+INFO: [Simtcl 6-16] Simulation closed
+=== S6 : PASS (6 cycles, 0 erreurs)
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_shift_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_shift_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Program.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.trace'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_shift_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=S7.hex" -generic_top "EXPECTED_FILE=S7.trace" -generic_top "TEST_ID=S7" -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=S7.hex -generic_top EXPECTED_FILE=S7.trace -generic_top TEST_ID=S7 -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="S...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture combinational of entity xil_defaultlib.shifter [shifter_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_shift_catalog
+Built simulation snapshot tb_shift_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_shift_catalog_behav -key {Behavioral:sim_1:Functional:tb_shift_catalog} -tclbatch {tb_shift_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_shift_catalog.tcl
+## current_wave_config
+Note: S7 cycles=4 errors=0
+Time: 56 ns  Iteration: 0  Process: /tb_shift_catalog/stimulus  File: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_shift_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_shift_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 300ns
+INFO: [Simtcl 6-16] Simulation closed
+=== S7 : PASS (4 cycles, 0 erreurs)
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_shift_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_shift_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Program.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.trace'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_shift_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=S8.hex" -generic_top "EXPECTED_FILE=S8.trace" -generic_top "TEST_ID=S8" -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=S8.hex -generic_top EXPECTED_FILE=S8.trace -generic_top TEST_ID=S8 -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="S...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture combinational of entity xil_defaultlib.shifter [shifter_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_shift_catalog
+Built simulation snapshot tb_shift_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_shift_catalog_behav -key {Behavioral:sim_1:Functional:tb_shift_catalog} -tclbatch {tb_shift_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_shift_catalog.tcl
+## current_wave_config
+Note: S8 cycles=4 errors=0
+Time: 56 ns  Iteration: 0  Process: /tb_shift_catalog/stimulus  File: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_shift_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_shift_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 300ns
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 430.066 ; gain = 0.000
+INFO: [Simtcl 6-16] Simulation closed
+=== S8 : PASS (4 cycles, 0 erreurs)
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_shift_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_shift_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Program.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.trace'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_shift_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=S9.hex" -generic_top "EXPECTED_FILE=S9.trace" -generic_top "TEST_ID=S9" -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=S9.hex -generic_top EXPECTED_FILE=S9.trace -generic_top TEST_ID=S9 -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="S...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture combinational of entity xil_defaultlib.shifter [shifter_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_shift_catalog
+Built simulation snapshot tb_shift_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_shift_catalog_behav -key {Behavioral:sim_1:Functional:tb_shift_catalog} -tclbatch {tb_shift_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_shift_catalog.tcl
+## current_wave_config
+Note: S9 cycles=6 errors=0
+Time: 76 ns  Iteration: 0  Process: /tb_shift_catalog/stimulus  File: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_shift_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_shift_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 300ns
+INFO: [Simtcl 6-16] Simulation closed
+=== S9 : PASS (6 cycles, 0 erreurs)
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_shift_catalog'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_shift_catalog' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Program.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.trace'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_shift_catalog_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -generic_top "PROGRAM_FILE=S10.hex" -generic_top "EXPECTED_FILE=S10.trace" -generic_top "TEST_ID=S10" -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -generic_top PROGRAM_FILE=S10.hex -generic_top EXPECTED_FILE=S10.trace -generic_top TEST_ID=S10 -L xil_defaultlib -L secureip --snapshot tb_shift_catalog_behav xil_defaultlib.tb_shift_catalog -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="S...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture combinational of entity xil_defaultlib.shifter [shifter_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_shift_catalog
+Built simulation snapshot tb_shift_catalog_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_shift_catalog_behav -key {Behavioral:sim_1:Functional:tb_shift_catalog} -tclbatch {tb_shift_catalog.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_shift_catalog.tcl
+## current_wave_config
+Note: S10 cycles=4 errors=0
+Time: 56 ns  Iteration: 0  Process: /tb_shift_catalog/stimulus  File: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_shift_catalog.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_shift_catalog_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 300ns
+INFO: [Simtcl 6-16] Simulation closed
+=== S10 : PASS (4 cycles, 0 erreurs)
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_mp1'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_mp1' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/ExpectedData.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Instructions.txt'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/Program.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S1.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S10.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S2.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S3.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S4.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S5.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S6.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S7.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S8.trace'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.hex'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim/S9.trace'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_mp1_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/src/mp1_system.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mp1_system'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_mp1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tb_mp1'
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_mp1_behav xil_defaultlib.tb_mp1 -log elaborate.log"
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_mp1_behav xil_defaultlib.tb_mp1 -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(1,11)\]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture combinational of entity xil_defaultlib.shifter [shifter_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture structural of entity xil_defaultlib.mp1_system [\mp1_system(1,11)\]
+Compiling architecture simulation of entity xil_defaultlib.tb_mp1
+Built simulation snapshot tb_mp1_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/vivado_shift/MP1_Shift.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_mp1_behav -key {Behavioral:sim_1:Functional:tb_mp1} -tclbatch {tb_mp1.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_mp1.tcl
+## set curr_wave [current_wave_config]
+## if { [string length $curr_wave] == 0 } {
+##   if { [llength [get_objects]] > 0} {
+##     add_wave /
+##     set_property needs_save false [current_wave_config]
+##   } else {
+##      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+##   }
+## }
+## run 230ns
+Note: LT: NZCV=1000, CondEx=1, RegWrite=1, FlagWrite=00
+Time: 135 ns  Iteration: 0  Process: /tb_mp1/stimulus  File: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_mp1.vhd
+Note: Tests: 20; errors: 0
+Time: 215 ns  Iteration: 0  Process: /tb_mp1/stimulus  File: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_mp1.vhd
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_mp1_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 230ns
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 430.066 ; gain = 0.000
+INFO: [Simtcl 6-16] Simulation closed
+# set txt [run_one tb_mp1 {} 230ns $simlog [file join $out logs tb_mp1.log]]
+# set status FAIL
+# if {[regexp {Tests: (\d+); errors: (\d+)} $txt -> n err] && $err == 0} { set status PASS }
+# puts $csv "REG,\"Regression Lab 4 tb_mp1\",20 tests sans erreur,[expr {[info exists n] ? "$n tests, $err erreurs" : "no result"}],$status,preuves/hatem_shift/logs/tb_mp1.log"
+# puts "=== tb_mp1 : $status"
+=== tb_mp1 : PASS
+# close $csv
+# close_project
+INFO: [Common 17-206] Exiting Vivado at Wed Nov 25 22:33:18 2026...

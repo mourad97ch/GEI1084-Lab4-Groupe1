@@ -1,0 +1,12 @@
+ID,Function,Expected,Observed,Status,EvidencePath
+S1,"LSL #0 : identite (R2 = 0xA5)",Trace architecturale complete (S1.trace),2 cycles, 0 erreurs,PASS,preuves/hatem_shift/logs/S1.log
+S2,"LSL #1 (R4 = 6)",Trace architecturale complete (S2.trace),2 cycles, 0 erreurs,PASS,preuves/hatem_shift/logs/S2.log
+S3,"LSL multi-bits #4 et #28 (R5 = 0x30, R6 = 0x30000000)",Trace architecturale complete (S3.trace),3 cycles, 0 erreurs,PASS,preuves/hatem_shift/logs/S3.log
+S4,"LSR ordinaire #1 et #5 (R7 = 0x10, R8 = 1)",Trace architecturale complete (S4.trace),3 cycles, 0 erreurs,PASS,preuves/hatem_shift/logs/S4.log
+S5,"LSR avec MSB = 1 : zeros a gauche (R9 = 0x7FFFFFFF, R11 = 1)",Trace architecturale complete (S5.trace),4 cycles, 0 erreurs,PASS,preuves/hatem_shift/logs/S5.log
+S6,"Decalage jusqu'a zero (0x80000000 LSL #1 = 0, 1 LSR #1 = 0)",Trace architecturale complete (S6.trace),6 cycles, 0 erreurs,PASS,preuves/hatem_shift/logs/S6.log
+S7,"AND avec operande decale (R3 = 0x0F, R4 = 0)",Trace architecturale complete (S7.trace),4 cycles, 0 erreurs,PASS,preuves/hatem_shift/logs/S7.log
+S8,"ORR avec operande decale (R3 = 0xF01, R4 = 0xF1)",Trace architecturale complete (S8.trace),4 cycles, 0 erreurs,PASS,preuves/hatem_shift/logs/S8.log
+S9,"Regression registre non decale (SUB/ADD/AND/ORR)",Trace architecturale complete (S9.trace),6 cycles, 0 erreurs,PASS,preuves/hatem_shift/logs/S9.log
+S10,"Regression chemin immediat + STR WriteData non decale (R1 = 0xA5)",Trace architecturale complete (S10.trace),4 cycles, 0 erreurs,PASS,preuves/hatem_shift/logs/S10.log
+REG,"Regression Lab 4 tb_mp1",20 tests sans erreur,20 tests, 0 erreurs,PASS,preuves/hatem_shift/logs/tb_mp1.log

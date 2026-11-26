@@ -1,0 +1,5 @@
+Time resolution is 1 ps
+Note: LT: NZCV=1000, CondEx=1, RegWrite=1, FlagWrite=00
+Time: 135 ns  Iteration: 0  Process: /tb_mp1/stimulus  File: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_mp1.vhd
+Note: Tests: 20; errors: 0
+Time: 215 ns  Iteration: 0  Process: /tb_mp1/stimulus  File: C:/Users/User/Desktop/UQTR_Cours/GEI1084_00_Architecture_des_ordinateurs_et_calcul_accelere/09_MiniProjet1/GEI1084-Lab4-Groupe1/phase4/sim/tb_mp1.vhd
