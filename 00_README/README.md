@@ -105,5 +105,4 @@ Dernier rejeu sur cette structure : 36 lignes sur 36 PASS (`04_RESULTS/REGRESSIO
 
 ## Mode de remise
 
-Remettre à la fois l'archive complète `GEI1084_MP1_Team01.zip` et l'URL Git. Les deux doivent
-correspondre au même commit/tag final consigné dans `SUBMISSION_INDEX.md`.
+GEI1084_MP1_Team01.zip
