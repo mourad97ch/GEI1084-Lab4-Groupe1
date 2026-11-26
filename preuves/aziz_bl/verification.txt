@@ -12,6 +12,6 @@ Résultats observés, attendus inchangés :
 - tb_bl_catalog : B1=3, B2=3, B3=10, B4=3, B5=5, B6=7, B7=3, B8=4 cycles; errors=0 pour chacun.
 - tb_mp1 : Tests=20, errors=0; contrôle LT confirmé avec NZCV=1000, CondEx=1, RegWrite=1, FlagWrite=00; fin à 215 ns dans une fenêtre de 230 ns.
 
-Points observés : BL écrit PC+4 dans R14; B4 exécute un déplacement arrière signé (PC 0x14 vers 0x08); le testbench tb_bl vérifie le retour par LR et la conservation des registres/LR pour B et une branche conditionnelle non prise. Les cas couvrent CondEx vrai pour AL et faux pour EQ; aucun cas ne vérifie explicitement une instruction BL à condition EQ vraie.
+Points observés : BL écrit PC+4 dans R14; B4 exécute un déplacement arrière signé (PC 0x14 vers 0x08); le testbench tb_bl vérifie le retour par LR et la conservation des registres/LR pour B et une branche conditionnelle non prise. Les cas vérifient CondEx vrai pour AL, faux pour EQ et vrai pour BL EQ.
 
-Les fichiers *.trace, Instructions.txt et ExpectedData.txt n'ont pas été modifiés. BL_EQ.hex est un nouveau programme de test, pas un fichier attendu. Les journaux bruts de ce rejeu sont vivado_regression_eq_final.log et vivado_regression_eq_final.jou; le script de rejeu est run_regression.tcl. Aucune capture n'est incluse; l'écran tb_bl est laissé ouvert dans Vivado pour les captures de Mohamed.
+Les fichiers *.trace, Instructions.txt et ExpectedData.txt n'ont pas été modifiés. BL_EQ.hex est un nouveau programme de test, pas un fichier attendu. Les journaux bruts de ce rejeu sont vivado_regression_eq_final.log et vivado_regression_eq_final.jou; le script de rejeu est run_regression.tcl. Les captures d'onde fournies sont waveform_tb_bl_original.png et waveform_tb_bl_eq.png.

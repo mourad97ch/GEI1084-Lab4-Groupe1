@@ -28,6 +28,7 @@ signal Done : boolean := false;
 signal CLK_EQ : std_logic := '0';
 signal Reset_EQ : std_logic := '1';
 signal RegState_EQ : std_logic_vector(479 downto 0);
+signal R14_EQ : std_logic_vector(31 downto 0);
 signal PC_EQ, Instr_EQ, ALUResult_EQ, WriteData_EQ : std_logic_vector(31 downto 0);
 signal ALUFlags_EQ, Flags_EQ : std_logic_vector(3 downto 0);
 signal FlagWrite_EQ : std_logic_vector(1 downto 0);
@@ -43,6 +44,7 @@ constant eq_pcs : eq_address_array := (0,4,20,24,8);
 constant eq_next_pcs : eq_address_array := (4,20,24,8,12);
 begin
 R14 <= RegState(479 downto 448);
+R14_EQ <= RegState_EQ(479 downto 448);
 CLK <= not CLK after 5 ns when not Done else '0';
 Reset <= '0' after 22 ns;
 CLK_EQ <= not CLK_EQ after 5 ns when not Done_EQ else '0';
