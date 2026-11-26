@@ -3,6 +3,8 @@ use ieee.std_logic_1164.all;
 
 entity datapath is
     port (
+        PCPlus4 : in std_logic_vector(31 downto 0);
+        Link : in std_logic;
         RegState : out std_logic_vector(479 downto 0);
         CLK        : in  std_logic;
         Instr      : in  std_logic_vector(31 downto 0);
@@ -80,6 +82,8 @@ architecture structural of datapath is
         );
     end component;
 
+    signal destination_s : std_logic_vector(3 downto 0);
+    signal writeback_s : std_logic_vector(31 downto 0);
     signal ra1_s, ra2_s : std_logic_vector(3 downto 0);
 
     signal rd1_s, rd2_s   : std_logic_vector(31 downto 0);
@@ -91,6 +95,8 @@ architecture structural of datapath is
     signal output_s      : std_logic_vector(31 downto 0);
 
 begin
+    destination_s <= "1110" when Link='1' else Instr(15 downto 12);
+    writeback_s <= PCPlus4 when Link='1' else output_s;
 
     -- Selection des adresses de lecture.
     ra1_s <= Instr(19 downto 16) when RegSrc(0) = '0'
@@ -105,8 +111,8 @@ begin
             RegWrite => RegWrite,
             RA1      => ra1_s,
             RA2      => ra2_s,
-            A3       => Instr(15 downto 12),
-            WD3      => output_s,
+            A3       => destination_s,
+            WD3      => writeback_s,
             R15      => PCPlus8,
             RegState => RegState,
             RD1      => rd1_s,

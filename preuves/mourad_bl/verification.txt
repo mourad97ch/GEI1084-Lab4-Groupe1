@@ -1,0 +1,19 @@
+﻿BL — Groupe 1 — 25 novembre 2026
+Execution Vivado de Mourad : tb_bl, 8 instructions, Error_count=0, Done=TRUE.
+Capture jointe : R14 reel=0 puis4 puis32. La constante links indique les attendus.
+Verification automatisee distincte : objectifs B1 a B8, huit scenarios PASS ; voir CSV et journaux.
+Regression Lab4 : 20 tests, zero erreur, controle LT reussi ; voir verification_bl_et_lab4.log.
+Ces executions concernent BL seul sur la base phase4, sans CMP ni Shifter.
+Revue independante de Zack : EN ATTENTE.
+
+Reproduction dans Vivado :
+Ajouter les sources phase4/src uniquement et les fichiers phase4/sim, .vhd en VHDL2008.
+Top design mp1_system. Top simulation tb_bl pour le parcours initial ; simuler110ns.
+Top tb_mp1 pour le Lab4 ; simuler230ns.
+Pour les huit scenarios : ajouter tb_bl_catalog comme Top simulation.
+B1 est le profil par defaut. Pour B2 a B8, modifier les generics dans Simulation Settings :
+PROGRAM_FILE=B2.hex, EXPECTED_FILE=B2.trace, TEST_ID=B2 (adapter le numero).
+Fermer et relancer la simulation apres chaque changement ; simuler au moins230ns.
+Chaque journal doit indiquer le numero de scenario et errors=0.
+Les fichiers .hex et .trace doivent etre accessibles au simulateur.
+Ne pas confondre les huit instructions de tb_bl avec les huit scenarios du catalogue.
