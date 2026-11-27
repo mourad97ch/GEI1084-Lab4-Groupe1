@@ -38,11 +38,16 @@ Une régression structurée montre ensuite que les fonctions du Lab 4 restent va
 | `03_TESTBENCH/instructions/` | programmes `.hex` (un par test) et `Instructions.txt` / `Program.hex` |
 | `03_TESTBENCH/expected_results/` | traces attendues `.trace`, `ExpectedData.txt`, `ExpectedResults.csv`, générateur des traces Shift |
 | `03_TESTBENCH/regression/` | scripts de régression et `RegressionSummary.csv` |
-| `04_RESULTS/` | journaux et captures par fonction (CMP, SHIFT, BL, REGRESSION, DEBUG_CASE) |
-| `05_ARCHITECTURE/` | schémas Lab 4, CMP, Shift, BL, intégré ; `traceur/` = outil d'étude interactif |
+| `04_RESULTS/` | preuves par fonction (CMP, SHIFT, BL, REGRESSION, DEBUG_CASE) : captures, CSV, un journal XSim par test |
+| `05_ARCHITECTURE/` | schémas Lab 4, CMP, Shift, BL, intégré ; `traceur/` = outil d'étude interactif (voir ci-dessous) |
 | `06_ENGINEERING_PRACTICE/` | livrables E2 à E7 |
 | `07_PRESENTATION/` | présentation (PDF + source PowerPoint) |
 | `08_GRADING_EVIDENCE/` | carte des preuves (Evidence Map) |
+
+**Traceur ARM monocycle** (`05_ARCHITECTURE/traceur/traceur-arm-monocycle.html`) : page HTML autonome, à
+ouvrir dans un navigateur, qui exécute pas à pas un petit programme ARM et colore le chemin de données
+emprunté par chaque instruction (Lab 4, CMP, Shift avec LSR #32, BL). C'est un outil d'étude et de
+présentation : il ne remplace pas la simulation VHDL et n'intervient dans aucun verdict PASS/FAIL.
 
 ## 5. Outils, versions et standard
 
@@ -74,19 +79,20 @@ FlagWrite, CondEx, le PC suivant et R0-R14 à la trace attendue.
 
 ## 8. Régression complète
 
-Depuis la racine du dépôt, au choix :
+Le guide exige une procédure reproductible (section 9.4), pas un script en particulier. Deux scripts
+équivalents sont fournis ; un seul suffit. Depuis la racine du dépôt :
 
 ```
 vivado -mode batch -source 03_TESTBENCH/regression/run_regression.tcl
 ```
-Sorties : `04_RESULTS/REGRESSION/rejeu/results.csv` et `logs/`.
+Sorties : `04_RESULTS/REGRESSION/rejeu/results.csv` et `logs/` (script Vivado de M. A. Amiri, chemins adaptés à la structure de remise).
 
 ```
 powershell -ExecutionPolicy Bypass -File 03_TESTBENCH/regression/run_regression_xsim.ps1
 ```
-(XSim en ligne de commande, sans projet ; option `-Vivado <dossier d'installation>`.)
-Sorties : `04_RESULTS/REGRESSION/rejeu_xsim/results.csv` et `logs/`. Ce script rejoue aussi le banc
-d'origine du Lab 4 (`02_HDL/baseline_lab4`).
+(XSim en ligne de commande, sans projet Vivado ; option `-Vivado <dossier d'installation>`.)
+Sorties : `04_RESULTS/REGRESSION/rejeu_xsim/results.csv` et `logs/` (journaux non versionnés). Ce script
+rejoue aussi le banc d'origine du Lab 4 (`02_HDL/baseline_lab4`).
 
 ## 9. Critère de réussite
 
@@ -103,6 +109,24 @@ Dernier rejeu sur cette structure : 36 lignes sur 36 PASS (`04_RESULTS/REGRESSIO
 - ARM Architecture Reference Manual (codage des décalages immédiats, LSR #32).
 - Provenance et licence : `06_ENGINEERING_PRACTICE/E4_Provenance_License/THIRD_PARTY_AND_PROVENANCE.md`.
 
+## 11. Organisation Git de l'équipe
+
+| Branche | Rôle |
+|---|---|
+| `main` | version stable ; modifiée seulement par pull request ; porte le tag de remise |
+| `dev/phase4` | branche d'intégration du MP1 ; chaque fonctionnalité y revient par PR |
+| `feature/cmp`, `feature/shift`, `feature/bl` | une fonctionnalité par membre, créée depuis `dev/phase4` |
+| `aziz/integration-final` | intégration CMP + Shift + BL |
+| `review/<reviewer>-<sujet>` | revue indépendante : le reviewer resimule le commit à vérifier et ajoute seulement ses preuves |
+| `tools/traceur`, `feature/structure-remise`, `remise/finale` | outil d'étude, structure et finalisation de la remise |
+
+Cycle suivi pour chaque fonction : branche `feature/*` -> PR vers `dev/phase4` -> revue par un autre membre
+(resimulation sur une branche `review/*`, constats et preuves dans la PR) -> merge -> régression intégrée ->
+PR `dev/phase4` -> `main`. Revues croisées : CMP (dév. A. Abib Ahmed, revue M. Chrami), Shift (H. Chaabane,
+revue H. Azzabi), BL (M. Chrami, revue M. A. Amiri), intégration (M. A. Amiri, vérification H. Azzabi).
+Le détail par PR est dans `06_ENGINEERING_PRACTICE/E2_Team_Contribution/E2_Team_Contribution.md`.
+
 ## Mode de remise
 
-GEI1084_MP1_Team01.zip
+Remettre à la fois l'archive `GEI1084_MP1_Team01.zip` (dossier racine `GEI1084_MP1_Team01/`) et l'URL du
+dépôt Git. Les deux correspondent au même tag final, consigné dans `00_README/SUBMISSION_INDEX.md`.
