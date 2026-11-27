@@ -14,7 +14,3 @@ If AI was used / Si une IAg a été utilisée:
 | Tool / Outil | Permitted pre-production activity / Activité pré-production permise | Purpose / Objectif | Original sources consulted / Sources originales consultées | Independent verification / Vérification indépendante |
 |---|---|---|---|---|
 | claude | Utilisation réelle déclarée — génération de code HTML pour la présentation du mini-projet. | Créer un support visuel pour l’exposé. | - | -|
-
-We confirm that generative AI was not used to generate or revise submitted report text, HDL, testbenches, diagrams, README/documentation, E2-E7 deliverables, E7 individual proposals, presentation content, or other graded production.
-
-Nous confirmons que l'IAg n'a pas été utilisée pour générer ou réviser le texte du rapport, le HDL, les bancs de test, les schémas, les fichiers README/documentation, les livrables E2-E7, les propositions individuelles E7, la présentation ou toute autre production évaluée.
