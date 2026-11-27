@@ -1,19 +1,27 @@
-# Submission index / Index de remise
+# Submission index / Index de remise - Team01
 
-Final report / Rapport final: `01_REPORT/Team01_GE1084_MP1_FinalReport.pdf`
+| Élément | Chemin |
+|---|---|
+| Rapport final | `01_REPORT/Team01_GE1084_MP1_FinalReport.pdf` |
+| HDL du Lab 4 (base) | `02_HDL/baseline_lab4/` |
+| HDL final | `02_HDL/final_design/` (top `mp1_system`, shifter `shifter.vhd`) |
+| Bancs de test | `03_TESTBENCH/testbench/` |
+| Programmes de test | `03_TESTBENCH/instructions/` |
+| Résultats attendus | `03_TESTBENCH/expected_results/ExpectedResults.csv` et `*.trace` |
+| Régression | `03_TESTBENCH/regression/RegressionSummary.csv`, scripts `run_regression.tcl` / `run_regression_xsim.ps1` |
+| Résultats | `04_RESULTS/CMP`, `SHIFT`, `BL`, `REGRESSION`, `DEBUG_CASE` |
+| Architecture | `05_ARCHITECTURE/` |
+| Pratique de l'ingénierie | `06_ENGINEERING_PRACTICE/E2_...` à `E7_...` |
+| Présentation | `07_PRESENTATION/Team01_GE1084_MP1_Presentation.pdf` |
+| Carte des preuves | `08_GRADING_EVIDENCE/Team01_GE1084_MP1_EvidenceMap.pdf` |
+| Déclaration IAg | `00_README/AI_USE_DECLARATION.md` |
 
-Final HDL: `02_HDL/final_design/`
+Git repository URL / URL du dépôt Git : https://github.com/mourad97ch/GEI1084-Lab4-Groupe1/tree/dev/phase4
+Final release tag/commit / Tag ou commit final : **À COMPLÉTER au gel de la remise** (nouveau tag sur la
+version finale ; le tag `mp1-team01-remise` désigne une version antérieure et ne doit pas être déplacé).
 
-Expected results / Résultats attendus: `03_TESTBENCH/expected_results/ExpectedResults.csv`
+ZIP filename / Nom du ZIP : `GEI1084_MP1_Team01.zip` (dossier racine `GEI1084_MP1_Team01/`)
 
-Regression results / Régression: `03_TESTBENCH/regression/RegressionSummary.csv`
-
-AI declaration / Déclaration IAg: `00_README/AI_USE_DECLARATION.md`
-
-Git repository URL / URL du dépôt Git: `TBD`
-
-Final release tag/commit / Tag ou commit final: `TBD`
-
-ZIP filename / Nom du ZIP: `GEI1084_MP1_Team01.zip`
-
-ZIP/Git equivalence declaration / Déclaration de correspondance ZIP-Git: `TBD - confirm both correspond to the same final commit/tag`
+ZIP/Git equivalence / Correspondance ZIP-Git : **À COMPLÉTER au gel** — l'archive doit être produite par
+`git archive --prefix=GEI1084_MP1_Team01/ -o GEI1084_MP1_Team01.zip <tag final>`, puis la présente ligne
+indique le tag et confirme la correspondance.

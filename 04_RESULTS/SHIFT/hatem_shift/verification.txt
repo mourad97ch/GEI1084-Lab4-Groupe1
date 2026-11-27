@@ -1,0 +1,46 @@
+Shift (S1-S11) - Groupe 1 - Hatem
+Branche : feature/shift. Outils : Vivado/XSim 2022.2, xc7z007sclg225-1, VHDL-2008.
+
+Ce qui a change :
+- phase4/src/shifter.vhd : shifter combinatoire, LSL et LSR logique.
+  shamt = Instr(11:7), sh = Instr(6:5), bit4 = Instr(4).
+  ASR, ROR et decalage par registre : hors portee, operande transmis tel quel.
+- phase4/src/datapath.vhd : RD2 -> shifter -> entree d0 du mux ALUSrc.
+  ExtImm (d1) n'est jamais decale. WriteData = RD2 non decale.
+  Interface du datapath inchangee (aucun port ajoute ou retire).
+- LSL #0 = identite : les instructions registre du Lab 4 (bits 11:4 = 0)
+  gardent le meme comportement.
+- Cas limite ARM (reserve de Haroun, PR #6) : LSR avec imm5 = 0 encode LSR #32,
+  resultat 0. Corrige par Mohamed Aziz au commit 647cab6 (integration), test S11.
+
+Tests :
+- phase4/sim/S1.hex ... S11.hex + S1.trace ... S11.trace (format des traces B1-B8).
+- Attendus generes par phase4/scripts/gen_shift_tests.py, un modele ARM ecrit
+  a partir de la specification (independant du VHDL).
+- Banc : phase4/sim/tb_shift_catalog.vhd (generics PROGRAM_FILE / EXPECTED_FILE / TEST_ID).
+  Chaque cycle verifie PC, Instr, ALUResult, WriteData, Flags, RegWrite,
+  MemWrite, PCSrc, FlagWrite, CondEx, PC suivant et R0-R14.
+
+Reproduction :
+  Depuis la racine du depot : vivado -mode batch -source phase4/prepare_shift.tcl
+  (ou Tools > Run Tcl Script dans Vivado). Le script cree phase4/vivado_shift,
+  simule S1 a S11 puis tb_mp1, copie les journaux dans preuves/hatem_shift/logs/
+  et ecrit preuves/hatem_shift/Resultats_S1_S10.csv.
+
+Execution 1 - Vivado de Hatem, commit c5fc234 (Shift seul, avant CMP/BL) :
+  S1 a S10 : PASS, 0 erreur chacun. tb_mp1 : 20 tests, 0 erreur (controle LT OK).
+  Journal : journal_vivado_hatem.txt (0 ERROR). Fichiers : logs/, Resultats_S1_S10.csv.
+  Capture : capture_shift_hatem.png = S5 a 39,3 ns : Instr E08090A8
+  (ADD R9,R0,R8,LSR #1), WriteData FFFFFFFF (RD2 non decale),
+  ALUResult 7FFFFFFF (zeros a gauche, pas d'ASR), Error_count 0, Done TRUE.
+
+Execution 2 - Vivado de Hatem, version integree (base fcc3714 : CMP + Shift + BL,
+correctif LSR #32 647cab6, script avec S11) :
+  S1 a S11 : PASS, 0 erreur chacun. tb_mp1 : 27 tests, 0 erreur (Lab 4 + CMP C1-C7, LT OK).
+  Journal : journal_vivado_hatem.txt (0 ERROR). Fichiers : logs/, Resultats_S1_S10.csv
+  (les journaux de l'execution 1 restent dans l'historique Git, commit 08080b4).
+  Capture : capture_shift_hatem_S11.png = S11 : Instr E0803022 (ADD R3,R0,R2,LSR #32),
+  WriteData FFFFFFFF, ALUResult 00000000, Error_count 0, Done TRUE.
+
+Revue independante : Haroun (PR #6, commit c5fc234) : S1-S10 PASS, reserve LSR #32
+  -> corrigee au commit 647cab6, a reconfirmer par Haroun sur l'execution 2.

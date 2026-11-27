@@ -1,0 +1,30 @@
+
+****** xsim v2022.2.2 (64-bit)
+  **** SW Build 3788238 on Tue Feb 21 20:00:34 MST 2023
+  **** IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+    ** Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/shift_corrected_S7/xsim_script.tcl
+# xsim {shift_corrected_S7} -wdb {<ESPACE_LOCAL>/verification_haroun_integration/shift_corrected/S7.wdb} -autoloadwcfg -tclbatch {<ESPACE_LOCAL>/verification_haroun_integration/shift_corrected/S7.tcl}
+Time resolution is 1 ps
+source <ESPACE_LOCAL>/verification_haroun_integration/shift_corrected/S7.tcl
+## log_wave -r /
+WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of object type or size limitations.  To see details please rerun the command with -verbose (-v).
+## open_vcd {<ESPACE_LOCAL>/GEI1084-Haroun-Integration/preuves/haroun_integration/shift_corrected/S7.vcd}
+## log_vcd /tb_shift_catalog/*
+WARNING: HDL object /tb_shift_catalog/Done is of a type not supported for VCD or has zero size.
+WARNING: HDL object /tb_shift_catalog/Error_count is of a type not supported for VCD or has zero size.
+WARNING: HDL object /tb_shift_catalog/Test_number is of a type not supported for VCD or has zero size.
+WARNING: HDL object /tb_shift_catalog/PROGRAM_FILE is of a type not supported for VCD or has zero size.
+WARNING: HDL object /tb_shift_catalog/EXPECTED_FILE is of a type not supported for VCD or has zero size.
+WARNING: HDL object /tb_shift_catalog/TEST_ID is of a type not supported for VCD or has zero size.
+## run 300ns
+Note: S7 cycles=4 errors=0
+Time: 56 ns  Iteration: 0  Process: /tb_shift_catalog/stimulus  File: <ESPACE_LOCAL>/GEI1084-Haroun-Shift-Corrected/phase4/sim/tb_shift_catalog.vhd
+## close_vcd
+## puts "HAROUN_RESULT Test_number=[get_value /tb_shift_catalog/Test_number] Error_count=[get_value /tb_shift_catalog/Error_count] Done=[get_value /tb_shift_catalog/Done]"
+HAROUN_RESULT Test_number=4 Error_count=0 Done=TRUE
+## puts "HAROUN_FINAL PC=[get_value -radix hex /tb_shift_catalog/PC] RegState=[get_value -radix hex /tb_shift_catalog/RegState]"
+HAROUN_FINAL PC=00000010 RegState=00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f000000ff000000f000000000
+## quit
+INFO: [Common 17-206] Exiting xsim at Wed Nov 25 23:01:25 2026...

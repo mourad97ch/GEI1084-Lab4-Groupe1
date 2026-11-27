@@ -1,0 +1,35 @@
+Vivado Simulator v2022.2.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -s integration_S9 xil_defaultlib.tb_shift_catalog -generic_top PROGRAM_FILE=S9.hex -generic_top EXPECTED_FILE=S9.trace -generic_top TEST_ID=S9 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.numeric_std_unsigned
+Compiling architecture simulation_ready of entity xil_defaultlib.instruction_rom [\instruction_rom(program_file="S...]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [reg_enable_default]
+Compiling architecture behave of entity xil_defaultlib.adder [adder_default]
+Compiling architecture rtl of entity xil_defaultlib.main_decoder [main_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_decoder [alu_decoder_default]
+Compiling architecture rtl of entity xil_defaultlib.pc_logic [pc_logic_default]
+Compiling architecture rtl of entity xil_defaultlib.condcheck [condcheck_default]
+Compiling architecture rtl of entity xil_defaultlib.reg_enable [\reg_enable(width=2)\]
+Compiling architecture structural of entity xil_defaultlib.condlogic [condlogic_default]
+Compiling architecture rtl of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture combinational of entity xil_defaultlib.extend [extend_default]
+Compiling architecture combinational of entity xil_defaultlib.shifter [shifter_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_arithmetic [alu_arithmetic_default]
+Compiling architecture combinational of entity xil_defaultlib.alu_select [alu_select_default]
+Compiling architecture rtl of entity xil_defaultlib.alu_flags [alu_flags_default]
+Compiling architecture structural of entity xil_defaultlib.alu32 [alu32_default]
+Compiling architecture rtl of entity xil_defaultlib.data_memory [data_memory_default]
+Compiling architecture structural of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture structural of entity xil_defaultlib.arm_mp1 [arm_mp1_default]
+Compiling architecture verification of entity xil_defaultlib.tb_shift_catalog
+Built simulation snapshot integration_S9

@@ -1,0 +1,37 @@
+ID,Status,Observed,Log
+C1,PASS,3 cycles; 0 errors,logs/C1.log
+C2,PASS,3 cycles; 0 errors,logs/C2.log
+C3,PASS,3 cycles; 0 errors,logs/C3.log
+C4,PASS,4 cycles; 0 errors,logs/C4.log
+C5,PASS,34 cycles; 0 errors,logs/C5.log
+C6,PASS,4 cycles; 0 errors,logs/C6.log
+C7,PASS,5 cycles; 0 errors,logs/C7.log
+S1,PASS,2 cycles; 0 errors,logs/S1.log
+S2,PASS,2 cycles; 0 errors,logs/S2.log
+S3,PASS,3 cycles; 0 errors,logs/S3.log
+S4,PASS,3 cycles; 0 errors,logs/S4.log
+S5,PASS,4 cycles; 0 errors,logs/S5.log
+S6,PASS,6 cycles; 0 errors,logs/S6.log
+S7,PASS,4 cycles; 0 errors,logs/S7.log
+S8,PASS,4 cycles; 0 errors,logs/S8.log
+S9,PASS,6 cycles; 0 errors,logs/S9.log
+S10,PASS,4 cycles; 0 errors,logs/S10.log
+S11,PASS,3 cycles; 0 errors,logs/S11.log
+B1,PASS,3 cycles; 0 errors,logs/B1.log
+B2,PASS,3 cycles; 0 errors,logs/B2.log
+B3,PASS,10 cycles; 0 errors,logs/B3.log
+B4,PASS,3 cycles; 0 errors,logs/B4.log
+B5,PASS,5 cycles; 0 errors,logs/B5.log
+B6,PASS,7 cycles; 0 errors,logs/B6.log
+B7,PASS,3 cycles; 0 errors,logs/B7.log
+B8,PASS,4 cycles; 0 errors,logs/B8.log
+LAB4,PASS,20 cycles; 0 errors,logs/LAB4.log
+R1,PASS,registre arithmetique, ligne 7,logs/LAB4.log
+R2,PASS,registre logique, ligne 6,logs/LAB4.log
+R3,PASS,immediat, ligne 2,logs/LAB4.log
+R4,PASS,LDR, ligne 15,logs/LAB4.log
+R5,PASS,STR, ligne 14,logs/LAB4.log
+R6,PASS,conditionnelle LT, ligne 12,logs/LAB4.log
+R7,PASS,B ordinaire (scenario B1),logs/B1.log
+tb_mp1,PASS,27 tests; 0 errors,logs/tb_mp1.log
+BASELINE_LAB4,PASS,20 tests; 0 errors,logs/BASELINE_LAB4.log

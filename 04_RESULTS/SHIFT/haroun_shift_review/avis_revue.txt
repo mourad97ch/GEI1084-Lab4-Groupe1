@@ -1,0 +1,19 @@
+AVIS DE REVUE - SHIFTER - HAROUN AZZABI
+Commit examine et execute : c5fc234a3089a7a657b98d17de99c5a19785d3d6.
+
+Connexions examinees : RD2 -> shifter -> mux ALUSrc ; immediat et
+WriteData non decales ; controle Instr(11:7), Instr(6:5), Instr(4).
+Vivado/XSim 2022.2.2 : S1-S10 passent (38 cycles, zero erreur,
+Done=TRUE pour chacun). Regression Lab4 : 20 tests, zero erreur, Done=TRUE.
+Capture S10 realisee et fournie par Haroun : 4 cycles, zero erreur, Done=TRUE.
+
+Reserve : le cas ARM LSR #32 (imm5=00000, sh=01, bit4=0)
+renvoie l'operande inchange. Reproduction locale : 80000001 -> 80000001,
+au lieu de 00000000. Voir journal_lsr32.txt et tb_lsr32_review.vhd.
+Demande : traiter cette limite et ajouter un test, ou confirmer et documenter
+son exclusion explicite du perimetre du cours avant une approbation complete.
+Sources et attendus fournis intacts ; aucune correction effectuee.
+
+Les tests CMP/BL et le processeur final integre ne sont pas valides ici.
+Au moment de la revue, feature/shift est publiee sans Pull Request d'integration.
+Cet avis accompagne les preuves ; aucune approbation formelle ni fusion.

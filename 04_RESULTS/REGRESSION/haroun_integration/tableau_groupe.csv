@@ -1,0 +1,35 @@
+ID,Status,Cycles,Evidence,Scope
+C1,PASS,3,integration/C1.log,scenario executed
+C2,PASS,3,integration/C2.log,scenario executed
+C3,PASS,3,integration/C3.log,scenario executed
+C4,PASS,4,integration/C4.log,scenario executed
+C5,PASS,34,integration/C5.log,scenario executed
+C6,PASS,4,integration/C6.log,scenario executed
+C7,PASS,5,integration/C7.log,scenario executed
+S1,PASS,2,integration/S1.log,scenario executed
+S2,PASS,2,integration/S2.log,scenario executed
+S3,PASS,3,integration/S3.log,scenario executed
+S4,PASS,3,integration/S4.log,scenario executed
+S5,PASS,4,integration/S5.log,scenario executed
+S6,PASS,6,integration/S6.log,scenario executed
+S7,PASS,4,integration/S7.log,scenario executed
+S8,PASS,4,integration/S8.log,scenario executed
+S9,PASS,6,integration/S9.log,scenario executed
+S10,PASS,4,integration/S10.log,scenario executed
+S11,PASS,3,integration/S11.log,scenario executed
+B1,PASS,3,integration/B1.log,scenario executed
+B2,PASS,3,integration/B2.log,scenario executed
+B3,PASS,10,integration/B3.log,scenario executed
+B4,PASS,3,integration/B4.log,scenario executed
+B5,PASS,5,integration/B5.log,scenario executed
+B6,PASS,7,integration/B6.log,scenario executed
+B7,PASS,3,integration/B7.log,scenario executed
+B8,PASS,4,integration/B8.log,scenario executed
+LAB4_ORIGINAL_20,PASS,20,integration/LAB4_ORIGINAL_20.log,scenario executed
+R1,PASS,included,integration/LAB4_ORIGINAL_20.log,arithmetic register: Lab4 row 7; not a separate simulation
+R2,PASS,included,integration/LAB4_ORIGINAL_20.log,logical register: Lab4 row 6; not a separate simulation
+R3,PASS,included,integration/LAB4_ORIGINAL_20.log,immediate: Lab4 row 2; not a separate simulation
+R4,PASS,included,integration/LAB4_ORIGINAL_20.log,LDR: Lab4 row 15; not a separate simulation
+R5,PASS,included,integration/LAB4_ORIGINAL_20.log,STR: Lab4 row 14; not a separate simulation
+R6,PASS,included,integration/LAB4_ORIGINAL_20.log,conditional LT: Lab4 row 12; not a separate simulation
+R7,PASS,included,integration/B1.log,ordinary B: B1; not a separate simulation

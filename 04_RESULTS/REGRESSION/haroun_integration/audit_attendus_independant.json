@@ -1,0 +1,137 @@
+[
+  {
+    "trace": "B1.trace",
+    "cycles": 3,
+    "errors": []
+  },
+  {
+    "trace": "B2.trace",
+    "cycles": 3,
+    "errors": []
+  },
+  {
+    "trace": "B3.trace",
+    "cycles": 10,
+    "errors": []
+  },
+  {
+    "trace": "B4.trace",
+    "cycles": 3,
+    "errors": []
+  },
+  {
+    "trace": "B5.trace",
+    "cycles": 5,
+    "errors": []
+  },
+  {
+    "trace": "B6.trace",
+    "cycles": 7,
+    "errors": []
+  },
+  {
+    "trace": "B7.trace",
+    "cycles": 3,
+    "errors": []
+  },
+  {
+    "trace": "B8.trace",
+    "cycles": 4,
+    "errors": []
+  },
+  {
+    "trace": "CMP_C1.trace",
+    "cycles": 3,
+    "errors": []
+  },
+  {
+    "trace": "CMP_C2.trace",
+    "cycles": 3,
+    "errors": []
+  },
+  {
+    "trace": "CMP_C3.trace",
+    "cycles": 3,
+    "errors": []
+  },
+  {
+    "trace": "CMP_C4.trace",
+    "cycles": 4,
+    "errors": []
+  },
+  {
+    "trace": "CMP_C5.trace",
+    "cycles": 34,
+    "errors": []
+  },
+  {
+    "trace": "CMP_C6.trace",
+    "cycles": 4,
+    "errors": []
+  },
+  {
+    "trace": "CMP_C7.trace",
+    "cycles": 5,
+    "errors": []
+  },
+  {
+    "trace": "CMP_LAB4.trace",
+    "cycles": 20,
+    "errors": []
+  },
+  {
+    "trace": "S1.trace",
+    "cycles": 2,
+    "errors": []
+  },
+  {
+    "trace": "S10.trace",
+    "cycles": 4,
+    "errors": []
+  },
+  {
+    "trace": "S11.trace",
+    "cycles": 3,
+    "errors": []
+  },
+  {
+    "trace": "S2.trace",
+    "cycles": 2,
+    "errors": []
+  },
+  {
+    "trace": "S3.trace",
+    "cycles": 3,
+    "errors": []
+  },
+  {
+    "trace": "S4.trace",
+    "cycles": 3,
+    "errors": []
+  },
+  {
+    "trace": "S5.trace",
+    "cycles": 4,
+    "errors": []
+  },
+  {
+    "trace": "S6.trace",
+    "cycles": 6,
+    "errors": []
+  },
+  {
+    "trace": "S7.trace",
+    "cycles": 4,
+    "errors": []
+  },
+  {
+    "trace": "S8.trace",
+    "cycles": 4,
+    "errors": []
+  },
+  {
+    "trace": "S9.trace",
+    "cycles": 6,
+    "errors": []
+  }
+]
