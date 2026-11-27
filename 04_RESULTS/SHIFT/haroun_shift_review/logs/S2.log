@@ -1,9 +1,0 @@
-Time resolution is 1 ps
-WARNING: HDL object /tb_shift_catalog/Done is of a type not supported for VCD or has zero size.
-WARNING: HDL object /tb_shift_catalog/Error_count is of a type not supported for VCD or has zero size.
-WARNING: HDL object /tb_shift_catalog/Test_number is of a type not supported for VCD or has zero size.
-WARNING: HDL object /tb_shift_catalog/PROGRAM_FILE is of a type not supported for VCD or has zero size.
-WARNING: HDL object /tb_shift_catalog/EXPECTED_FILE is of a type not supported for VCD or has zero size.
-WARNING: HDL object /tb_shift_catalog/TEST_ID is of a type not supported for VCD or has zero size.
-Note: S2 cycles=2 errors=0
-Time: 36 ns  Iteration: 0  Process: /tb_shift_catalog/stimulus  File: <ESPACE_LOCAL>/GEI1084-Haroun-Shift/phase4/sim/tb_shift_catalog.vhd

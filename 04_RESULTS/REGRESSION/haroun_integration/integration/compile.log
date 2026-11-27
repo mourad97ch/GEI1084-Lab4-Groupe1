@@ -1,3 +1,0 @@
-Determining compilation order of HDL files.
-INFO: [VRFC 10-163] Analyzing VHDL file "<ESPACE_LOCAL>/verification_haroun_integration/integration/tb_lsr32_review.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'tb_lsr32_review'

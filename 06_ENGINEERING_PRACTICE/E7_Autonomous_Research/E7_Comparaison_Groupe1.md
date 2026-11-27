@@ -1,6 +1,6 @@
 # Comparaison E7 du Groupe 1
 
-Cette synthèse prépare la décision du groupe. La notation et la sélection restent à consigner après validation des cinq fiches individuelles.
+Cette synthèse prépare la décision du groupe. La notation et la sélection ci-dessous ont été confirmées par le groupe le 26 novembre 2026.
 
 | Membre | Sujet | Preuve ou point de départ | État |
 |---|---|---|---|
@@ -12,7 +12,7 @@ Cette synthèse prépare la décision du groupe. La notation et la sélection re
 
 La fiche d’Haroun documente le défaut observé avant correction. Après intégration, S11 a vérifié le comportement corrigé sur 7ab6fb8. La piste d’Hatem porte sur la couverture des encodages limites, tandis que celle d’Haroun porte sur la méthode d’isolement du défaut.
 
-## Matrice à remplir ensemble
+## Matrice de décision du groupe
 
 | Critère | Poids | Mourad — BL | Abdoulrazack — CMP | Hatem — Shifter | Haroun — Diagnostic | Aziz — Régression |
 |---|---:|---:|---:|---:|---:|---:|
@@ -27,7 +27,7 @@ La fiche d’Haroun documente le défaut observé avant correction. Après inté
 
 Une note de 5 en complexité ou en coût et risque correspond à un effort ou à un risque faible. Le total est la somme des notes multipliées par leurs poids. Pour P4, le calcul donne `5 × 90 % + 4 × 10 % = 4,90`.
 
-**Date de la décision** — [Inscrire la date réelle de validation par le groupe.]
+**Date de la décision** — 26 novembre 2026 (notes confirmées par le groupe ; choix présenté à l'oral le même jour).
 
 **Idée retenue** — P4, la régression reproductible par commit, proposée par Mohamed Aziz Amiri.
 
