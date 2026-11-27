@@ -1,0 +1,8 @@
+# Sorties regenerees par 03_TESTBENCH/regression/run_regression_xsim.ps1 et run_regression.tcl
+04_RESULTS/REGRESSION/rejeu_xsim/logs/
+04_RESULTS/REGRESSION/rejeu_xsim/work/
+04_RESULTS/REGRESSION/rejeu/
+*.jou
+*.wdb
+xsim.dir/
+.Xil/
