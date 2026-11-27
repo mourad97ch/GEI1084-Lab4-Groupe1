@@ -1,7 +1,7 @@
 # E2 - Contribution au travail d'équipe et intégration (Team01)
 
 Faits tirés du dépôt https://github.com/mourad97ch/GEI1084-Lab4-Groupe1 (PR, commits, journaux).
-Les parties qui demandent le jugement de chaque membre sont marquées **À COMPLÉTER**.
+Chaque ligne doit être confirmée par le membre concerné.
 
 ## E2.1 - Plan de contribution (prévu en début de projet)
 
@@ -25,9 +25,15 @@ Les parties qui demandent le jugement de chaque membre sont marquées **À COMPL
 | H. Azzabi | revues indépendantes Lab 4, phase 4, Shifter, intégration ; banc minimal LSR #32 | détection du défaut LSR #32, revérification après correction | PR #2, #6, #11, `04_RESULTS/REGRESSION/haroun_*`, `04_RESULTS/SHIFT/haroun_shift_review/` |
 | M. A. Amiri | intégration CMP + Shift + BL, tests CMP corrigés, correctif LSR #32 (647cab6), S11, script de rejeu | 32 cas + Lab 4 + tb_mp1 27/27 | PR #9, `04_RESULTS/REGRESSION/aziz_integration/` |
 
-Décision technique personnelle de chaque membre (au moins une) : **À COMPLÉTER par chaque membre.**
-Exemple documenté pour H. Chaabane : shifter placé avant le mux ALUSrc (et non après) pour que ExtImm et
-WriteData ne soient jamais décalés ; LSR en `unsigned` pour un remplissage par zéros.
+Décision technique personnelle de chaque membre (reprise du rapport final, section 9.1) :
+
+| Membre | Décision technique |
+|---|---|
+| M. Chrami | BL : sélecteurs de destination (A3 -> R14) et de donnée (WD3 -> PC+4), écriture de lien soumise à CondEx |
+| A. Abib Ahmed | CMP : réutiliser SUB dans les décodeurs et inhiber RegW plutôt qu'ajouter un comparateur |
+| H. Chaabane | Shifter placé entre RD2 et le mux ALUSrc, RD2 brut conservé pour STR (WriteData) ; ExtImm jamais décalé ; LSR en `unsigned` (remplissage par zéros) |
+| H. Azzabi | isoler le défaut LSR #32 dans un banc minimal du shifter avant de rejouer le processeur complet |
+| M. A. Amiri | traiter LSR avec imm5 = 0 comme LSR #32 (sortie 0) et relier le bilan de régression au commit testé |
 
 ## E2.3 - Problème d'intégration réel
 
@@ -56,7 +62,7 @@ Problème -> composants -> étudiants -> résolution -> revalidation :
 |---|---|---|---|---|---|---|
 | M. Chrami | base phase 4, BL | dépôt, fusions | fusion PR #1, #3, #8, #9 | revue CMP (PR #8) | B1-B8 | PR #1, #3 |
 | A. Abib Ahmed | CMP | — | — | — | tests CMP | PR #8 |
-| H. Chaabane | Shifter, S1-S10 | traceur, structure de remise | PR #5, #10, #12 | **À COMPLÉTER** (revue de l'intégration prévue) | S1-S11, mutations | PR #10 |
+| H. Chaabane | Shifter, S1-S10 | traceur, structure de remise | PR #5, #10, #12, #13 | revue de l'intégration prévue au plan, non consignée (l'intégration a été vérifiée par H. Azzabi, PR #11) | S1-S11, mutations | PR #10 |
 | H. Azzabi | vérification indépendante | — | — | PR #2, #6, #11 | défaut LSR #32 | PR #6, #11 |
 | M. A. Amiri | intégration | correctif LSR #32 | PR #9 | revue BL (PR #3) | 32 cas + Lab 4 | PR #9 |
 
